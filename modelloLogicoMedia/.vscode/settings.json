@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "qstring": "cpp",
+        "qtextstream": "cpp",
+        "system_error": "cpp",
+        "string_view": "cpp",
+        "ostream": "cpp",
+        "qvector": "cpp"
+    }
+}
