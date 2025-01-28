@@ -55,3 +55,7 @@ int BookGenreToInt(const BookGenre& g){
 void Book::accept(AbstractMediaVisitor& visitor){
     visitor.visitBook(*this);
 }
+
+bool Book::matchString(const QString& match)const{
+    return PaperMedia::matchString(match) || match==isbn;
+}

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/book.png</file>
+        <file>icons/magazine.png</file>
+        <file>icons/CD.png</file>
+        <file>icons/film.png</file>
+        <file>icons/aggiungi.png</file>
+        <file>icons/elimina.png</file>
+    </qresource>
+</RCC>

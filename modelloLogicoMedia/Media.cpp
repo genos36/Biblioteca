@@ -1,8 +1,8 @@
 #include "Media.h"
 #include "../Observers/AbstractMediaObserver.h"
 
-Media::Media():title("Default title"),author("Default author"),
-        year(2000),description("Default Description"),total(0),
+Media::Media():title(""),author(""),
+        year(-1),description(""),total(0),
         currentAvailability(0),genre(-1){}
 
 Media::Media(const QString& Title,const QString& Author,int Year, 
@@ -52,7 +52,7 @@ void Media::setAuthor(const QString& Author){
 }
 
 void Media::setYear(int Year){
-    year=Year;
+    year=Year>0?Year:0;
 }
 
 void Media::setDescription(const QString& Description){
@@ -94,6 +94,11 @@ void Media::RemoveFromTotal(int rem){
 
 void Media::RemoveFromCurrentAvailability(int rem){
     setCurrentAvailability(currentAvailability-rem);
+}
+
+//others
+bool Media::matchString(const QString& match)const{
+    return match==title || match==author || match==QString::number(year)||match==getGenreName();
 }
 
 //Desing pattern

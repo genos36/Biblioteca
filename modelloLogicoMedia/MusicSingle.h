@@ -1,20 +1,20 @@
-#ifndef SINGLECD_H
-#define SINGLECD_H
+#ifndef MUSICSINGLE_H
+#define MUSICSINGLE_H
 
 #include "Audio.h"
 
-class SingleCD:public virtual Audio{
+class MusicSingle:public virtual Audio{
 private:
     QString recordLable;
 
 public:
-    SingleCD();
-    SingleCD(const QString& Title,const QString& Author,int Year,
+    MusicSingle();
+    MusicSingle(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
             int CurrentAvailability);
-    SingleCD(const QString& Title,const QString& Author,int Year,
+    MusicSingle(const QString& Title,const QString& Author,int Year,
             const AudioGenre& Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
@@ -24,6 +24,8 @@ public:
     void accept(AbstractMediaVisitor&)override;
 
     void setRecordLabel(const QString&);
+
+    bool matchString(const QString&)const override;
 
 };
 

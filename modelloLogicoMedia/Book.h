@@ -33,6 +33,8 @@ class Book:public virtual PaperMedia{
 
     void setIsbn(const QString&);
 
+    bool matchString(const QString &)const override;
+
 
 
 

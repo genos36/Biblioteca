@@ -26,3 +26,7 @@ void PaperMedia::setPages(int Pages){
 void PaperMedia::setEditor(const QString& Editor){
     editor=Editor;
 }
+
+bool PaperMedia::matchString(const QString & match)const{
+    return Media::matchString(match)||match==editor;
+}

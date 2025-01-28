@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include/x86_64-linux-gnu/qt6/QtCore",
-                "/usr/include/x86_64-linux-gnu/qt6"
+                "/usr/include/x86_64-linux-gnu/qt6",
+                "/usr/include/x86_64-linux-gnu/qt6/QtWidgets"
             ],
             "defines": [],
             "cStandard": "c17",

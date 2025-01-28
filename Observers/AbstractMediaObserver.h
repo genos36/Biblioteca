@@ -5,6 +5,7 @@ class AbstractMediaObserver{
     public:
     
     virtual void update(Media&)=0;
+    
 
     virtual ~AbstractMediaObserver()=default;
 

@@ -21,6 +21,8 @@ class PaperMedia: public Media{
     void setPages(int);
     void setEditor(const QString&);
 
+    bool matchString(const QString &)const override;
+
 };
 
 

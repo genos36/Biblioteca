@@ -1,16 +1,16 @@
-#include "SingleCD.h"
+#include "MusicSingle.h"
 #include "../Visitors/AbstractMediaVisitor.h"
 
-SingleCD::SingleCD():Audio(),recordLable("Default"){}
+MusicSingle::MusicSingle():Audio(),recordLable("Default"){}
 
-SingleCD::SingleCD(const QString& Title,const QString& Author,int Year,
+MusicSingle::MusicSingle(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
             int CurrentAvailability):Audio(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability),
             recordLable(RecordLabel){}
 
-SingleCD::SingleCD(const QString& Title,const QString& Author,int Year,
+MusicSingle::MusicSingle(const QString& Title,const QString& Author,int Year,
             const AudioGenre& Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
@@ -19,14 +19,18 @@ SingleCD::SingleCD(const QString& Title,const QString& Author,int Year,
 
 
 
-QString SingleCD::getRecordLabel()const{
+QString MusicSingle::getRecordLabel()const{
     return recordLable;
 }
 
-void SingleCD::setRecordLabel(const QString& RecordLabel){
+void MusicSingle::setRecordLabel(const QString& RecordLabel){
     recordLable=RecordLabel;
 }
 
-void SingleCD::accept(AbstractMediaVisitor& visitor){
-    visitor.visitSingleCD(*this);
+void MusicSingle::accept(AbstractMediaVisitor& visitor){
+    visitor.visitMusicSingle(*this);
+}
+
+bool MusicSingle::matchString(const QString& match)const{
+    return Media::matchString(match)||match==recordLable;
 }

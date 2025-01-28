@@ -8,6 +8,17 @@
         "vector": "cpp",
         "ostream": "cpp",
         "qtextstream": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "qtoolbar": "cpp",
+        "qmainwindow": "cpp",
+        "qstackedwidget": "cpp",
+        "qlistwidget": "cpp",
+        "qhboxlayout": "cpp",
+        "qscrollarea": "cpp",
+        "qpushbutton": "cpp",
+        "qgridlayout": "cpp",
+        "qcombobox": "cpp",
+        "qvboxlayout": "cpp",
+        "qdockwidget": "cpp"
     }
 }

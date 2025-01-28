@@ -1,6 +1,6 @@
 #include "Book.h"
 #include "Magazine.h"
-#include "SingleCD.h"
+#include "MusicSingle.h"
 #include "Film.h"
 #include "../Visitors/Query.h"
 #include "../Visitors/FilterVisitor.h"
@@ -9,7 +9,7 @@
 #include<QDebug>
 
 void StampaLibro(const Book&);
-int main(){
+int test(){
     Book provaD;
 
     Book prova1("Appunti di programmazione ad oggetti","Francesco Ranzato", 2023,BookGenre::Sci_fy ,"libro del corso di programmazione ad oggetti",379,"libreria progetto","9788831901710",10,10);
@@ -20,9 +20,9 @@ int main(){
     Magazine rivista3("Il satiro sientifico","BarbascuraX",2020,MagazineGenre::scientific,"Preparatevi a essere divulgati male",251,"mondadori",Frequency::no_data,-23,5,5);
     Magazine rivista4("Il satiro sientifico","BarbascuraX",2020,MagazineGenre::scientific,"Preparatevi a essere divulgati male",251,"mondadori",Frequency::no_data,4,5,5);
 
-    SingleCD CD1("Barbagianni","Nanowar of Steel",2016,AudioGenre::Metal,"Barbagianni Barbagianni Barbagianni Barbagianni",-1,"Napalm Records",-20,45);
-    SingleCD CD2("you're gonna go far kid","The offspring",2008,AudioGenre::Punk,"album half turism",4000,"non lo so",-20,45);
-    SingleCD CD3("Paperella gay","SPJokey",2008,AudioGenre::Unknown,"sei l'uccello che vorrei",4000,"non lo so",-20,45);
+    MusicSingle CD1("Barbagianni","Nanowar of Steel",2016,AudioGenre::Metal,"Barbagianni Barbagianni Barbagianni Barbagianni",-1,"Napalm Records",-20,45);
+    MusicSingle CD2("you're gonna go far kid","The offspring",2008,AudioGenre::Punk,"album half turism",4000,"non lo so",-20,45);
+    MusicSingle CD3("Paperella gay","SPJokey",2008,AudioGenre::Unknown,"sei l'uccello che vorrei",4000,"non lo so",-20,45);
 
     Film film1("interstellar","christofer nolan",2008,VideoGenre::Sci_fy,"buchi neri",4000000,"Mattew mcconagaughy",10,-1);
     Film film2("tenet","christofer nolan",2008,VideoGenre::Sci_fy,"buchi neri",4000000,"john david washington",10,-1);
@@ -76,7 +76,7 @@ int main(){
 
     qDebug()<<Qt::endl<<Qt::endl <<p->getGenreName()<<Qt::endl;
 */
-
+return 0;
 }
 
 

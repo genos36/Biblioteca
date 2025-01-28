@@ -1,134 +1,63 @@
 #include "Query.h"
 #include "../modelloLogicoMedia/Book.h"
 #include "../modelloLogicoMedia/Magazine.h"
-#include "../modelloLogicoMedia/SingleCD.h"
+#include "../modelloLogicoMedia/MusicSingle.h"
 #include "../modelloLogicoMedia/Film.h"
 
 Query::Query(const QString& Text):text(Text.toLower()){}
 
 QVector<Media*> Query::search(const QVector<Media*>& SearchList)const{
-    QVector<Media*> Results;
+    QVector<Media*> results;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
-        if((*cit)->getTitle().toLower()==text){
-           Results.push_back(*cit);
-        }
-        else if((*cit)->getAuthor().toLower()==text){
-                Results.push_back(*cit);
-                }
-            else if((*cit)->getGenreName().toLower()==text){
-                    Results.push_back(*cit);
-                    }
-                    else if(QString::number((*cit)->getYear())==text){
-                      Results.push_back(*cit);  
-                    }
-               
-        
+        if((*cit)->matchString(text)){
+                   results.push_back(*cit); 
+               }      
     }
-    return Results;
+    return results;
 }
 
-
 QVector<Book*> Query::search(const QVector<Book*>& SearchList)const{
-    QVector<Book*> Results;
+    QVector<Book*> results;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
-        if((*cit)->getTitle().toLower()==text){
-           Results.push_back(*cit);
-        }
-        else if((*cit)->getAuthor().toLower()==text){
-                Results.push_back(*cit);
-                }
-            else if((*cit)->getGenreName().toLower()==text){
-                    Results.push_back(*cit);
-                    }
-                    else if(QString::number((*cit)->getYear())==text){
-                      Results.push_back(*cit);  
-                        }
-                        else if((*cit)->getIsbn().toLower()==text){
-                            Results.push_back(*cit);  
-                        }
-                            else if((*cit)->getEditor().toLower()==text){
-                                Results.push_back(*cit);
-                            }
+        if((*cit)->matchString(text)){
+                   results.push_back(*cit); 
+               }      
     }
-    return Results;
+    return results;
 }
 
 
 QVector<Magazine*> Query::search(const QVector<Magazine*>& SearchList)const{
-    QVector<Magazine*> Results;
+    QVector<Magazine*> results;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
-        if((*cit)->getTitle().toLower()==text){
-           Results.push_back(*cit);
-        }
-        else if((*cit)->getAuthor().toLower()==text){
-                Results.push_back(*cit);
-                }
-            else if((*cit)->getGenreName().toLower()==text){
-                    Results.push_back(*cit);
-                    }
-                    else if(QString::number((*cit)->getYear())==text){
-                      Results.push_back(*cit);  
-                    }
-                        else if((*cit)->getEditor().toLower()==text){
-                                    Results.push_back(*cit);
-                                }
-               
-        
+        if((*cit)->matchString(text)){
+                   results.push_back(*cit); 
+               }      
     }
-    return Results;
+    return results;
 }
 
-QVector<SingleCD*> Query::search(const QVector<SingleCD*>& SearchList)const{
-    QVector<SingleCD*> Results;
+QVector<MusicSingle*> Query::search(const QVector<MusicSingle*>& SearchList)const{
+    QVector<MusicSingle*> results;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
-        if((*cit)->getTitle().toLower()==text){
-           Results.push_back(*cit);
-        }
-        else if((*cit)->getAuthor().toLower()==text){
-                Results.push_back(*cit);
-                }
-            else if((*cit)->getGenreName().toLower()==text){
-                    Results.push_back(*cit);
-                    }
-                    else if(QString::number((*cit)->getYear())==text){
-                      Results.push_back(*cit);  
-                    }
-                        else if((*cit)->getRecordLabel()==text){
-                            Results.push_back(*cit);  
-                        }                    
-               
-        
+        if((*cit)->matchString(text)){
+                   results.push_back(*cit); 
+               }      
     }
-    return Results;
+    return results;
 }
 
 QVector<Film*> Query::search(const QVector<Film*>& SearchList)const{
-    QVector<Film*> Results;
+    QVector<Film*> results;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
-        if((*cit)->getTitle().toLower()==text){
-           Results.push_back(*cit);
-        }
-        else if((*cit)->getAuthor().toLower()==text){
-                Results.push_back(*cit);
-                }
-            else if((*cit)->getGenreName().toLower()==text){
-                    Results.push_back(*cit);
-                    }
-                    else if(QString::number((*cit)->getYear())==text){
-                      Results.push_back(*cit);  
-                    }
-                        else if((*cit)->getMainActor().toLower()==text){
-
-                        }
-               
-        
+        if((*cit)->matchString(text)){
+                   results.push_back(*cit); 
+               }      
     }
-    return Results;
+    return results;
 }
-
-

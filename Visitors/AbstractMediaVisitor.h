@@ -3,7 +3,7 @@
 
 class Book;
 class Magazine;
-class SingleCD;
+class MusicSingle;
 class Film;
 
 class AbstractMediaVisitor{
@@ -11,7 +11,7 @@ class AbstractMediaVisitor{
 
     virtual void visitBook(Book&)=0;
     virtual void visitMagazine(Magazine&)=0;
-    virtual void visitSingleCD(SingleCD&)=0;
+    virtual void visitMusicSingle(MusicSingle&)=0;
     virtual void visitFilm(Film&)=0;
     
     virtual ~AbstractMediaVisitor()=default;

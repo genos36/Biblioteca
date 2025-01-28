@@ -45,6 +45,7 @@ class Magazine:virtual public PaperMedia{
 
     void accept(AbstractMediaVisitor&) override;
 
+    
 
 };
 

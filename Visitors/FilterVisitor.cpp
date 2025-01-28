@@ -1,6 +1,6 @@
 #include "../modelloLogicoMedia/Book.h"
 #include "../modelloLogicoMedia/Magazine.h"
-#include "../modelloLogicoMedia/SingleCD.h"
+#include "../modelloLogicoMedia/MusicSingle.h"
 #include "../modelloLogicoMedia/Film.h"
 #include "FilterVisitor.h"
 
@@ -37,8 +37,8 @@ void FilterVisitor::visitMagazine(Magazine& magazine){
     magazines.push_back(&magazine);
 }
 
-void FilterVisitor::visitSingleCD(SingleCD& singleCD){
-    singleCDs.push_back(&singleCD);
+void FilterVisitor::visitMusicSingle(MusicSingle& MusicSingle){
+    MusicSingles.push_back(&MusicSingle);
 }
 
 void FilterVisitor::visitFilm(Film& film){
@@ -53,8 +53,8 @@ QVector<Magazine*> FilterVisitor::getmagazines()const{
     return magazines;
 }
 
-QVector<SingleCD*>  FilterVisitor::getsingleCDs()const{
-    return singleCDs;
+QVector<MusicSingle*>  FilterVisitor::getMusicSingles()const{
+    return MusicSingles;
 }
 
 QVector<Film*> FilterVisitor::getfilms()const{
@@ -64,6 +64,6 @@ QVector<Film*> FilterVisitor::getfilms()const{
 void FilterVisitor::clean(){
     books=QVector<Book*>();
     magazines=QVector<Magazine*>();
-    singleCDs=QVector<SingleCD*>();
+    MusicSingles=QVector<MusicSingle*>();
     films=QVector<Film*>();
 }

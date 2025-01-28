@@ -61,7 +61,8 @@ class Media{
         void notify(AbstractMediaObserver*);
         void notifyAll();
 
-
+        //others
+        virtual bool matchString(const QString&)const;
 
 };
 

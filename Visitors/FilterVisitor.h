@@ -10,19 +10,19 @@ class FilterVisitor:public AbstractMediaVisitor{
     private:
     QVector<Book*> books;
     QVector<Magazine*> magazines;
-    QVector<SingleCD*> singleCDs;
+    QVector<MusicSingle*> MusicSingles;
     QVector<Film*> films; 
 
     public:
 
     void visitBook(Book&) override;
     void visitMagazine(Magazine&) override;
-    void visitSingleCD(SingleCD&) override;
+    void visitMusicSingle(MusicSingle&) override;
     void visitFilm(Film&) override;
 
     QVector<Book*> getBooks()const;
     QVector<Magazine*> getmagazines()const;
-    QVector<SingleCD*> getsingleCDs()const;
+    QVector<MusicSingle*> getMusicSingles()const;
     QVector<Film*> getfilms()const;
 
     void addMedia(Media&);
