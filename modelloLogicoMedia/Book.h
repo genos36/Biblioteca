@@ -35,6 +35,8 @@ class Book:public virtual PaperMedia{
 
     bool matchString(const QString &)const override;
 
+    Book* clone()const override;
+
 
 
 

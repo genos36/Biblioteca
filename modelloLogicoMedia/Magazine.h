@@ -45,7 +45,8 @@ class Magazine:virtual public PaperMedia{
 
     void accept(AbstractMediaVisitor&) override;
 
-    
+    //others
+    Magazine* clone()const override;
 
 };
 

@@ -45,12 +45,12 @@ class Media{
         void setDescription(const QString&);
 
         virtual void setTotal(int);
-        virtual void addToTotal(int);                   //aumenta le copie totali
-        virtual void RemoveFromTotal(int);              //riduce le copie totali
+        virtual int addToTotal(int);                   //aumenta le copie totali
+        virtual int RemoveFromTotal(int);              //riduce le copie totali
 
         virtual void setCurrentAvailability(int);
-        virtual void addToCurrentAvailability(int);     //aumenta le copie disponibili
-        virtual void RemoveFromCurrentAvailability(int);//riduce le copie disponibili
+        virtual int addToCurrentAvailability(int);     //aumenta le copie disponibili
+        virtual int RemoveFromCurrentAvailability(int);//riduce le copie disponibili
 
         void setGenre(int);
 
@@ -63,6 +63,7 @@ class Media{
 
         //others
         virtual bool matchString(const QString&)const;
+        virtual Media* clone()const=0;
 
 };
 

@@ -21,7 +21,9 @@ class Film:public virtual Video{
     QString getMainActor()const;
     void setMainActor(const QString&);
     void accept(AbstractMediaVisitor&)override;
+    //others
     bool matchString(const QString& )const override;
+    Film* clone()const override;
 };
 
 #endif

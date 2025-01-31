@@ -14,6 +14,10 @@ int Duration::secondi()const{
     return sec%60;
 }
 
+ Duration::operator QString()const{
+    return QString::number(ore())+":"+QString::number(minuti())+":"+QString::number(secondi());
+ }
+
 QTextStream& operator<<(QTextStream& os,const Duration& d){
     return os<<d.ore()<<":"<<d.minuti()<<":"<<d.secondi();
 }

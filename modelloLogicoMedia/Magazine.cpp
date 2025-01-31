@@ -71,3 +71,9 @@ QString Magazine::getGenreName()const{
 void Magazine::accept(AbstractMediaVisitor& visitor){
     visitor.visitMagazine(*this);
 }
+
+//others
+
+Magazine* Magazine::clone()const{
+    return new Magazine(*this);
+}

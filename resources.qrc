@@ -6,5 +6,6 @@
         <file>icons/film.png</file>
         <file>icons/aggiungi.png</file>
         <file>icons/elimina.png</file>
+        <file>icons/defaultImage.png</file>
     </qresource>
 </RCC>

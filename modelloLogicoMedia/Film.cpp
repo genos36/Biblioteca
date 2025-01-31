@@ -25,10 +25,15 @@ void Film::setMainActor(const QString& MainActor){
     mainActor=MainActor;
 }
 
-bool Film::matchString(const QString& match)const{
-    return Media::matchString(match)||match==mainActor;
-}
-
 void Film::accept(AbstractMediaVisitor& visitor){
     visitor.visitFilm(*this);
 }
+
+bool Film::matchString(const QString& match)const{
+    return Media::matchString(match)||match.toLower()==mainActor.toLower();
+}
+
+Film* Film::clone()const{
+    return new Film(*this);
+}
+

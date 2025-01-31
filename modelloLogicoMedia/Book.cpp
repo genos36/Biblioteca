@@ -56,6 +56,11 @@ void Book::accept(AbstractMediaVisitor& visitor){
     visitor.visitBook(*this);
 }
 
+//others
 bool Book::matchString(const QString& match)const{
-    return PaperMedia::matchString(match) || match==isbn;
+    return PaperMedia::matchString(match) || match.toLower()==isbn.toLower();
+}
+
+Book* Book::clone()const{
+    return new Book(*this);
 }

@@ -31,6 +31,11 @@ void MusicSingle::accept(AbstractMediaVisitor& visitor){
     visitor.visitMusicSingle(*this);
 }
 
+//others
 bool MusicSingle::matchString(const QString& match)const{
-    return Media::matchString(match)||match==recordLable;
+    return Media::matchString(match)||match.toLower()==recordLable.toLower();
+}
+
+MusicSingle* MusicSingle::clone()const{
+    return new MusicSingle(*this);
 }

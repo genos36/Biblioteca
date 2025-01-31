@@ -24,8 +24,9 @@ public:
     void accept(AbstractMediaVisitor&)override;
 
     void setRecordLabel(const QString&);
-
+    //others
     bool matchString(const QString&)const override;
+    MusicSingle* clone()const override;
 
 };
 

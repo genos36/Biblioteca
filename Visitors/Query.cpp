@@ -8,6 +8,7 @@ Query::Query(const QString& Text):text(Text.toLower()){}
 
 QVector<Media*> Query::search(const QVector<Media*>& SearchList)const{
     QVector<Media*> results;
+    if(text=="")return results=SearchList;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
         if((*cit)->matchString(text)){
@@ -19,6 +20,7 @@ QVector<Media*> Query::search(const QVector<Media*>& SearchList)const{
 
 QVector<Book*> Query::search(const QVector<Book*>& SearchList)const{
     QVector<Book*> results;
+    if(text=="")return results=SearchList;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
         if((*cit)->matchString(text)){
@@ -31,6 +33,7 @@ QVector<Book*> Query::search(const QVector<Book*>& SearchList)const{
 
 QVector<Magazine*> Query::search(const QVector<Magazine*>& SearchList)const{
     QVector<Magazine*> results;
+    if(text=="")return results=SearchList;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
         if((*cit)->matchString(text)){
@@ -42,6 +45,7 @@ QVector<Magazine*> Query::search(const QVector<Magazine*>& SearchList)const{
 
 QVector<MusicSingle*> Query::search(const QVector<MusicSingle*>& SearchList)const{
     QVector<MusicSingle*> results;
+    if(text=="")return results=SearchList;
 
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
         if((*cit)->matchString(text)){
@@ -53,7 +57,7 @@ QVector<MusicSingle*> Query::search(const QVector<MusicSingle*>& SearchList)cons
 
 QVector<Film*> Query::search(const QVector<Film*>& SearchList)const{
     QVector<Film*> results;
-
+    if(text=="")return results=SearchList;
     for(auto cit=SearchList.cbegin();cit!=SearchList.cend();++cit){
         if((*cit)->matchString(text)){
                    results.push_back(*cit); 
@@ -61,3 +65,16 @@ QVector<Film*> Query::search(const QVector<Film*>& SearchList)const{
     }
     return results;
 }
+
+
+    bool Query::operator==(const Query& q)const{
+        return text==q.text;
+    }
+
+        bool Query::operator!=(const Query& q)const{
+        return text!=q.text;
+    }
+
+    bool Query::hasMatch(const Media& media)const{
+        return text==""||media.matchString(text);
+    }

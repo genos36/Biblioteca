@@ -128,7 +128,6 @@
 #define __BFLT16_DIG__ 2
 #define __GNUC__ 13
 #define __GXX_RTTI 1
-#define __pie__ 2
 #define __MMX__ 1
 #define __FLT_HAS_DENORM__ 1
 #define __SIZEOF_LONG_DOUBLE__ 16
@@ -154,7 +153,6 @@
 #define __MMX_WITH_SSE__ 1
 #define __LDBL_HAS_DENORM__ 1
 #define __SEG_GS 1
-#define __BFLT16_EPSILON__ 7.81250000000000000000000000000000000e-3BF16
 #define __cplusplus 201703L
 #define __cpp_ref_qualifiers 200710L
 #define __DEC32_MIN__ 1E-95DF
@@ -305,6 +303,7 @@
 #define __cpp_structured_bindings 201606L
 #define __SIZEOF_INT__ 4
 #define __DEC32_MAX_EXP__ 97
+#define __BFLT16_EPSILON__ 7.81250000000000000000000000000000000e-3BF16
 #define __INT_FAST8_MAX__ 0x7f
 #define __FLT128_MAX__ 1.18973149535723176508575932662800702e+4932F128
 #define __INTPTR_MAX__ 0x7fffffffffffffffL
@@ -432,7 +431,6 @@
 #define __GNUC_MINOR__ 3
 #define __GLIBCXX_TYPE_INT_N_0 __int128
 #define __UINTMAX_MAX__ 0xffffffffffffffffUL
-#define __PIE__ 2
 #define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x
 #define __cpp_template_template_args 201611L
 #define __DBL_MAX_10_EXP__ 308

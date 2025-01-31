@@ -28,5 +28,5 @@ void PaperMedia::setEditor(const QString& Editor){
 }
 
 bool PaperMedia::matchString(const QString & match)const{
-    return Media::matchString(match)||match==editor;
+    return Media::matchString(match)||match.toLower()==editor.toLower();
 }

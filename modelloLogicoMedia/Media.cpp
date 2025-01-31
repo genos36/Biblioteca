@@ -69,7 +69,7 @@ void Media::setTotal(int Total){
 }
 
 void Media::setCurrentAvailability(int CurrentAvailability){
-    if(CurrentAvailability>0 && CurrentAvailability<=total){
+    if(CurrentAvailability>=0 && CurrentAvailability<=total){
         currentAvailability=CurrentAvailability;
     }
 }
@@ -78,27 +78,31 @@ void Media::setGenre(int Genre){
     genre=Genre;
 }
 //incrementi e decrementi di total e currentAvailability
-void Media::addToTotal(int add){
-    total+=add;
+int Media::addToTotal(int add){
     currentAvailability+=add;
+    return total+=add;
 }
 
-void Media::addToCurrentAvailability(int add){
-    if((currentAvailability+add) <=total )currentAvailability+=add;
+int Media::addToCurrentAvailability(int add){
+    if((currentAvailability+add) <=total) currentAvailability+=add;
+    return currentAvailability;
 }
 
-void Media::RemoveFromTotal(int rem){
+int Media::RemoveFromTotal(int rem){
     setTotal(total-rem);
     setCurrentAvailability(currentAvailability-rem);
+    return total;
 }
 
-void Media::RemoveFromCurrentAvailability(int rem){
+int Media::RemoveFromCurrentAvailability(int rem){
     setCurrentAvailability(currentAvailability-rem);
+    return currentAvailability;
 }
 
 //others
 bool Media::matchString(const QString& match)const{
-    return match==title || match==author || match==QString::number(year)||match==getGenreName();
+    return match.toLower()==title.toLower() || match.toLower()==author.toLower() || 
+    match.toLower()==QString::number(year).toLower()||match==getGenreName().toLower();
 }
 
 //Desing pattern
