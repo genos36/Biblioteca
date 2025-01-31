@@ -48,12 +48,13 @@ class EditView:public QWidget{
 
     QString getImagePath()const;
     void setImagePath(const QString&);
-
+    void addWidget(QWidget*);
+    void addLayout(QLayout *);
 
     public slots:
     void changeImageSlot();
     virtual ListWidgetMediaItem* createNewMedia()const=0;
-    virtual void applyMod(ListWidgetMediaItem)const=0;
+    virtual void applyMod(ListWidgetMediaItem*)const=0;
 
 };
 

@@ -4,8 +4,8 @@
     invece che con puntatore così da non dover gestire il nullptr , usa il metodo clone di media
     per eseguire la costruzione di copia polimorfa da m, il media di input,
     il parametro 1001 serve a QlistWidgetItem per capire che è un tipo definito da utente*/
-    ListWidgetMediaItem::ListWidgetMediaItem(const Media& m,QListWidget * parent):
-    QListWidgetItem(m.getTitle(),parent,1001),media(m.clone()),imagePath("/icons/defaultImage"){}
+    ListWidgetMediaItem::ListWidgetMediaItem(const Media& m,const QString& ImagePath ,QListWidget * parent):
+    QListWidgetItem(m.getTitle(),parent,1001),media(m.clone()),imagePath(ImagePath){}
 
 
     //oveloading di operator* per l'accesso a media

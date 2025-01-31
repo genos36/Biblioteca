@@ -1,6 +1,8 @@
 #include <QApplication>
 #include "BibliotecaMainWindow.h"
 #include "SearchListWidgetMedia.h"
+#include "BookEditView.h"
+#include "MagazineEditView.h"
 
 #include "../Visitors/DetailView.h"
 #include "EditView.h"
@@ -68,9 +70,10 @@ int main(int argc, char *argv[]) {
 
     qDebug()<<rivista4.getEditor();
 */
-//EditView provaEdit(prova1);
+//BookEditView provaEdit(prova1);
 //provaEdit.show();
-
+MagazineEditView provaEditMag(rivista1);
+provaEditMag.show();
     
     return app.exec();
 }

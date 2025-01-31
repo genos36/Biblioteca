@@ -8,8 +8,7 @@ private:
     int sec;
 
 public:
-    Duration();
-    Duration(int);
+    Duration(int=0,int=0,int=0);
 
     int secondi()const;
     int minuti()const;

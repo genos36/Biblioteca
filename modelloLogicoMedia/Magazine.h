@@ -4,9 +4,9 @@
 #include "Genre/MagazineGenre.h"
     
     enum class Frequency{
-        no_data=-1,
-        settimanale,
-        mensile
+        no_data=0,
+        settimanale=1,
+        mensile=2
     };
 class Magazine:virtual public PaperMedia{
     private:

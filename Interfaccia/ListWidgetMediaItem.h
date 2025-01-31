@@ -15,7 +15,7 @@ class ListWidgetMediaItem:public QListWidgetItem{
     ListWidgetMediaItem& operator=(const ListWidgetMediaItem &)=default;
 
     public:
-    ListWidgetMediaItem(const Media&,QListWidget * =nullptr);
+    ListWidgetMediaItem(const Media&,const QString& ImagePath =":/icons/defaultImage",QListWidget * =nullptr);
 
     Media& operator*();
     const Media& operator*()const;

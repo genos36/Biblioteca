@@ -2,9 +2,9 @@
 #define MAGAZINEGENRE_H
 
 enum class MagazineGenre{
-    Unknown =-1,
-    currentAffairs,
-    scientific
+    Unknown =0,
+    currentAffairs=1,
+    scientific=2
 };
 
 
