@@ -52,7 +52,7 @@
         newLabel->setText("Periodicità:");
         layout->addWidget(newLabel,1,1,1,1);
     
-        frequencySelector->setCurrentIndex(-1);
+        frequencySelector->setCurrentIndex(0);
         layout->addWidget(frequencySelector,1,2,1,1); 
 
         //Creaiamo la label e la line edit per il genere
@@ -60,7 +60,7 @@
         newLabel->setText("Genere:");
         layout->addWidget(newLabel,2,1,1,1);
     
-        magazineGenreSelector->setCurrentIndex(-1);
+        magazineGenreSelector->setCurrentIndex(0);
         layout->addWidget(magazineGenreSelector,2,2,1,1); 
 
 

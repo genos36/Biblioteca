@@ -7,6 +7,7 @@ Film::Film(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description,
             const Duration& Lenght,const QString& MainActor ,int Total,
             int CurrentAvailability):
+            Media(Title,Author,Year,Genre,Description,Total,CurrentAvailability),
             Video(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability),
             mainActor(MainActor){}
 
@@ -14,8 +15,7 @@ Film::Film(const QString& Title,const QString& Author,int Year,
             const VideoGenre& Genre, const QString& Description,
             const Duration& Lenght,const QString& MainActor ,int Total,
             int CurrentAvailability):
-            Video(Title,Author,Year,VideoGenreToInt(Genre),Description,Lenght,Total,CurrentAvailability),
-            mainActor(MainActor){}
+            Film(Title,Author,Year,VideoGenreToInt(Genre),Description,Lenght,MainActor,Total,CurrentAvailability){}
 
 QString Film::getMainActor()const{
     return mainActor;

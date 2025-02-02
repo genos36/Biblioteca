@@ -78,3 +78,8 @@ QVector<Film*> Query::search(const QVector<Film*>& SearchList)const{
     bool Query::hasMatch(const Media& media)const{
         return text==""||media.matchString(text);
     }
+
+
+    Query* Query::clone()const{
+        return new Query(text);
+    }

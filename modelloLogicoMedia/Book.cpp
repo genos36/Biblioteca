@@ -8,6 +8,7 @@ Book::Book(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description, 
             int Pages, const QString& Editor,const QString& Isbn,
             int Total, int CurrentAvailability):
+            Media(Title,Author,Year,Genre,Description,Total,CurrentAvailability),
             PaperMedia(Title,Author,Year,Genre,Description,Pages,Editor,Total,CurrentAvailability),
             isbn(Isbn){}
 
@@ -16,8 +17,7 @@ Book::Book(const QString& Title,const QString& Author,int Year,
             const BookGenre& Genre, const QString& Description, 
             int Pages, const QString& Editor,const QString& Isbn,
             int Total, int CurrentAvailability):
-            PaperMedia(Title,Author,Year,static_cast<int>(Genre),Description,Pages,Editor,Total,CurrentAvailability),
-            isbn(Isbn){}
+            Book(Title,Author,Year,static_cast<int>(Genre),Description,Pages,Editor,Isbn,Total,CurrentAvailability){}
 
 
 ISBN Book::getIsbn()const{

@@ -38,3 +38,11 @@
     void ListWidgetMediaItem::setImagePath(const QString& ImagePath){
         imagePath=ImagePath;
     }
+
+    bool ListWidgetMediaItem::operator==(const ListWidgetMediaItem& item){
+        return media==item.media;
+    }
+
+    bool ListWidgetMediaItem::operator!=(const ListWidgetMediaItem& item){
+        return media!=item.media;
+    }

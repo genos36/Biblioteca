@@ -5,6 +5,7 @@
 #include "../modelloLogicoMedia/Duration.h"
 
 class DurationSlider:public QWidget{
+    Q_OBJECT
     private:
     QSpinBox* hour;
     QSpinBox* minute;

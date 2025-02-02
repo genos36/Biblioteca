@@ -3,7 +3,7 @@
 
 #include "Media.h"
 
-class PaperMedia: public Media{
+class PaperMedia: virtual public Media{
     private:
         int pages;
         QString editor;

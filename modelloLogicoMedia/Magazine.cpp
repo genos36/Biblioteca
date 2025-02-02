@@ -8,6 +8,7 @@ Magazine::Magazine(const QString& Title,const QString& Author,
             int Pages, QString Editor,const Frequency& freq,
             int NEdition, 
             int Total, int CurrentAvailability):
+            Media(Title,Author,Year,Genre,Description,Total,CurrentAvailability),
             PaperMedia(Title,Author,Year,Genre,Description,Pages,Editor,Total,CurrentAvailability),
             frequency(freq),nEdition(NEdition>0?NEdition:0){}
 
@@ -16,8 +17,7 @@ Magazine::Magazine(const QString& Title,const QString& Author,
             int Pages, QString Editor,const Frequency& freq,
             int NEdition, 
             int Total, int CurrentAvailability):
-            PaperMedia(Title,Author,Year,MagazineGenreToInt(Genre),Description,Pages,Editor,Total,CurrentAvailability),
-            frequency(freq),nEdition(NEdition>0?NEdition:0){}
+            Magazine(Title,Author,Year,MagazineGenreToInt(Genre),Description,Pages,Editor,freq,NEdition>0?NEdition:0,Total,CurrentAvailability){}
 
 
 QString Magazine::intToMagazineGenre(int g){

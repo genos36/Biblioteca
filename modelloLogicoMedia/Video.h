@@ -13,6 +13,9 @@ class Video:public Multimedia{
             int Genre, const QString& Description,const Duration& Lenght, int Total,
             int CurrentAvailability);
 
+    Video(const QString& Title,const QString& Author,int Year,
+            const VideoGenre& Genre, const QString& Description,const Duration& Lenght, int Total,
+            int CurrentAvailability);
 
     static QString intToVideoGenre(int);
     static int VideoGenreToInt(const VideoGenre&);

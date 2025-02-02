@@ -7,6 +7,11 @@ Video::Video(const QString& Title,const QString& Author,int Year,
             int CurrentAvailability):
             Multimedia(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability){}
 
+Video::Video(const QString& Title,const QString& Author,int Year,
+            const VideoGenre& Genre, const QString& Description,const Duration& Lenght, int Total,
+            int CurrentAvailability):
+            Multimedia(Title,Author,Year,VideoGenreToInt(Genre),Description,Lenght,Total,CurrentAvailability){}
+
 QString Video::intToVideoGenre(int g){
     switch(static_cast<VideoGenre>(g)){
         case VideoGenre::Action :return "Action";

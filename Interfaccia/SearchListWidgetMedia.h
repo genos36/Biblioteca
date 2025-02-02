@@ -9,16 +9,17 @@
 #include "../modelloLogicoMedia/Film.h"
 
 class SearchListWidgetMedia:public ListWidgetMedia{
+    Q_OBJECT
 private:
-    Query query;
+    Query* query;
 
     template<class T>
     void createFilteredlist(const ListWidgetMedia& l);
     
 
 public:
-    SearchListWidgetMedia(const QString& inputText,QWidget* parent=nullptr);
-
+    SearchListWidgetMedia(const Query& inputQuery=Query(""),QWidget* parent=nullptr);
+    ~SearchListWidgetMedia();
     void setQuery(const Query& q);
     
     void clearSearchList();//rimuove gli oggetti dalla lista SENZA DEALLOCARLI 
@@ -36,10 +37,10 @@ public:
 template<class T>
 void SearchListWidgetMedia::createFilteredlist(const ListWidgetMedia& l){
     if(this!=&l){
-        clearSearchList();
+        clear();
         for(int i=0;i<l.count();++i){
             if(auto item=l.item(i)){
-                if(dynamic_cast<const T*>(item->operator->()) &&query.hasMatch(**item))addItem(item->clone());
+                if(dynamic_cast<const T*>(item->operator->()) &&query->hasMatch(**item))addItem(item->clone());
             }
         }
     }

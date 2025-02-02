@@ -7,15 +7,17 @@ MusicSingle::MusicSingle(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
-            int CurrentAvailability):Audio(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability),
+            int CurrentAvailability):
+            Media(Title,Author,Year,Genre,Description,Total,CurrentAvailability),
+            Audio(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability),
             recordLable(RecordLabel){}
 
 MusicSingle::MusicSingle(const QString& Title,const QString& Author,int Year,
             const AudioGenre& Genre, const QString& Description,
             const Duration& Lenght,const QString& RecordLabel,
             int Total,
-            int CurrentAvailability):Audio(Title,Author,Year,AudioGenreToInt(Genre),Description,Lenght,Total,CurrentAvailability),
-            recordLable(RecordLabel){}
+            int CurrentAvailability):
+            MusicSingle(Title,Author,Year,AudioGenreToInt(Genre),Description,Lenght,RecordLabel,Total,CurrentAvailability){}
 
 
 

@@ -3,6 +3,7 @@
 #include "EditView.h"
 class PaperMedia;
 class PaperMediaEditView:public EditView{
+    Q_OBJECT
     private:
     QLineEdit* editor;
     QSpinBox* pages;

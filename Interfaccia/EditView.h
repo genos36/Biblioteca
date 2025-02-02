@@ -14,6 +14,7 @@ class MusicSingle;
 class Film;
 
 class EditView:public QWidget{
+    Q_OBJECT
     private:
     //void buildGenericEdit(Media&,const QString& ImagePath =":/icons/defaultImage");
     QVBoxLayout* mainLayout;

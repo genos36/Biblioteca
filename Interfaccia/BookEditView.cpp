@@ -5,24 +5,26 @@
     bookGenreSelector(buildBookGenreSelector()){
 
 
-    QGridLayout* layout(new QGridLayout());
+        QGridLayout* layout(new QGridLayout());
 
-    //creiamo la label e la spinBox per l'ISBN
-    QLabel* newLabel=new QLabel();
-    newLabel->setText("ISBN:");
-    layout->addWidget(newLabel,0,1,1,1);
-    
-    isbn->setText(book.getIsbn());
-    layout->addWidget(isbn,0,2,1,1); 
+        //creiamo la label e la spinBox per l'ISBN
+        QLabel* newLabel=new QLabel();
+        newLabel->setText("ISBN:");
+        layout->addWidget(newLabel,0,1,1,1);
 
-    //creiamo la label e posizionimo il selettore del genere
-    newLabel=new QLabel();
-    newLabel->setText("Genere:");
-    layout->addWidget(newLabel,1,1,1,1);
-    
-    bookGenreSelector->setCurrentIndex(book.getGenre());
-    layout->addWidget(bookGenreSelector,1,2,1,1); 
-    addLayout(layout);
+        isbn->setText(book.getIsbn());
+        isbn->setInputMask("9999999999999;_");
+        layout->addWidget(isbn,0,2,1,1); 
+
+        //creiamo la label e posizionimo il selettore del genere
+        newLabel=new QLabel();
+        newLabel->setText("Genere:");
+        layout->addWidget(newLabel,1,1,1,1);
+
+        bookGenreSelector->setCurrentIndex(book.getGenre());
+        layout->addWidget(bookGenreSelector,1,2,1,1); 
+        
+        addLayout(layout);
     }
 
     BookEditView::BookEditView(QWidget* parent,const QString& ImagePath )
@@ -45,7 +47,7 @@
     newLabel->setText("Genere:");
     layout->addWidget(newLabel,1,1,1,1);
     
-    bookGenreSelector->setCurrentIndex(-1);
+    bookGenreSelector->setCurrentIndex(0);
     layout->addWidget(bookGenreSelector,1,2,1,1); 
     addLayout(layout);
     }

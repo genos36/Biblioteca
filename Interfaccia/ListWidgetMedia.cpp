@@ -65,12 +65,33 @@
             delete takeItem(row(item));
         }
         if(l){
-            removeItem(item);
+        for (int i = 0; i < l->count(); ++i) {
+            auto* listItem = dynamic_cast<ListWidgetMediaItem*>(l->item(i));
+            if (listItem && *listItem == *item) {  
+            // Usa un confronto sui contenuti
+                delete l->takeItem(i);
+            }
         }
+    }
     }
 
     void ListWidgetMedia::removeItem(ListWidgetMediaItem* item){
         if(item&& row(item)!=-1){
             delete takeItem(row(item));            
+        }
+    }
+
+    void ListWidgetMedia::addItemAndSync( ListWidgetMedia* l, ListWidgetMediaItem* item){
+        if(item&& row(item)==-1){
+            addItem(item);
+        }
+        if(l){
+            bool guard=false;
+            for(int i=0;!guard&&i<l->count();++i){
+                if(item==l->item(i)){
+                    guard=true;
+                }
+            }
+            if(guard)l->addItem(item->clone());
         }
     }

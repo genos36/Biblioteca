@@ -6,7 +6,6 @@
 #include "../modelloLogicoMedia/Media.h"
 
 class ListWidgetMediaItem:public QListWidgetItem{
-    
     private:
     QSharedPointer<Media> media;
     QString imagePath;
@@ -27,6 +26,8 @@ class ListWidgetMediaItem:public QListWidgetItem{
     QString getImagePath()const;
     void setImagePath(const QString&);
 
+    bool operator==(const ListWidgetMediaItem&);
+    bool operator!=(const ListWidgetMediaItem&);
 };
 
 #endif

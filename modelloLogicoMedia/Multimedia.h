@@ -2,14 +2,14 @@
 #define MULTIMEDIA_H
 #include "Media.h"
 #include "Duration.h"
-class Multimedia:public Media{
+class Multimedia: virtual public Media{
 private:
 Duration lenght;
 
 public:
 Multimedia();
 Multimedia(const QString& Title,const QString& Author,int Year,
-            int Genre, const QString& Description,Duration Lenght, int Total,
+            int Genre, const QString& Description,const Duration& Lenght, int Total,
             int CurrentAvailability);
 
 

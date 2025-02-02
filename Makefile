@@ -61,6 +61,7 @@ SOURCES       = Interfaccia/AudioEditView.cpp \
 		Interfaccia/ListWidgetMedia.cpp \
 		Interfaccia/ListWidgetMediaItem.cpp \
 		Interfaccia/MagazineEditView.cpp \
+		Interfaccia/MainView.cpp \
 		Interfaccia/MultimediaEditView.cpp \
 		Interfaccia/MusicSingleEditView.cpp \
 		Interfaccia/MyToolBar.cpp \
@@ -86,10 +87,22 @@ SOURCES       = Interfaccia/AudioEditView.cpp \
 		Visitors/FilterVisitor.cpp \
 		Visitors/Query.cpp \
 		Visitors/WidgetVisitor.cpp qrc_resources.cpp \
+		moc_AudioEditView.cpp \
 		moc_BibliotecaMainWindow.cpp \
+		moc_BookEditView.cpp \
+		moc_DurationSlider.cpp \
+		moc_EditView.cpp \
+		moc_FilmEditView.cpp \
 		moc_ListWidgetMedia.cpp \
+		moc_MagazineEditView.cpp \
+		moc_MainView.cpp \
+		moc_MultimediaEditView.cpp \
+		moc_MusicSingleEditView.cpp \
 		moc_MyToolBar.cpp \
-		moc_SearchInterface.cpp
+		moc_PaperMediaEditView.cpp \
+		moc_SearchInterface.cpp \
+		moc_SearchListWidgetMedia.cpp \
+		moc_VideoEditView.cpp
 OBJECTS       = AudioEditView.o \
 		BibliotecaMainWindow.o \
 		BookEditView.o \
@@ -99,6 +112,7 @@ OBJECTS       = AudioEditView.o \
 		ListWidgetMedia.o \
 		ListWidgetMediaItem.o \
 		MagazineEditView.o \
+		MainView.o \
 		MultimediaEditView.o \
 		MusicSingleEditView.o \
 		MyToolBar.o \
@@ -125,10 +139,22 @@ OBJECTS       = AudioEditView.o \
 		Query.o \
 		WidgetVisitor.o \
 		qrc_resources.o \
+		moc_AudioEditView.o \
 		moc_BibliotecaMainWindow.o \
+		moc_BookEditView.o \
+		moc_DurationSlider.o \
+		moc_EditView.o \
+		moc_FilmEditView.o \
 		moc_ListWidgetMedia.o \
+		moc_MagazineEditView.o \
+		moc_MainView.o \
+		moc_MultimediaEditView.o \
+		moc_MusicSingleEditView.o \
 		moc_MyToolBar.o \
-		moc_SearchInterface.o
+		moc_PaperMediaEditView.o \
+		moc_SearchInterface.o \
+		moc_SearchListWidgetMedia.o \
+		moc_VideoEditView.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/common/linux.conf \
@@ -203,6 +229,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		Interfaccia/ListWidgetMedia.h \
 		Interfaccia/ListWidgetMediaItem.h \
 		Interfaccia/MagazineEditView.h \
+		Interfaccia/MainView.h \
 		Interfaccia/MultimediaEditView.h \
 		Interfaccia/MusicSingleEditView.h \
 		Interfaccia/MyToolBar.h \
@@ -240,6 +267,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		Interfaccia/ListWidgetMedia.cpp \
 		Interfaccia/ListWidgetMediaItem.cpp \
 		Interfaccia/MagazineEditView.cpp \
+		Interfaccia/MainView.cpp \
 		Interfaccia/MultimediaEditView.cpp \
 		Interfaccia/MusicSingleEditView.cpp \
 		Interfaccia/MyToolBar.cpp \
@@ -433,8 +461,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents Interfaccia/AudioEditView.h Interfaccia/BibliotecaMainWindow.h Interfaccia/BookEditView.h Interfaccia/DurationSlider.h Interfaccia/EditView.h Interfaccia/FilmEditView.h Interfaccia/ListWidgetMedia.h Interfaccia/ListWidgetMediaItem.h Interfaccia/MagazineEditView.h Interfaccia/MultimediaEditView.h Interfaccia/MusicSingleEditView.h Interfaccia/MyToolBar.h Interfaccia/PaperMediaEditView.h Interfaccia/SearchInterface.h Interfaccia/SearchListWidgetMedia.h Interfaccia/VideoEditView.h modelloLogicoMedia/Audio.h modelloLogicoMedia/Book.h modelloLogicoMedia/Duration.h modelloLogicoMedia/Film.h modelloLogicoMedia/ISBN.h modelloLogicoMedia/Magazine.h modelloLogicoMedia/Media.h modelloLogicoMedia/Multimedia.h modelloLogicoMedia/MusicSingle.h modelloLogicoMedia/PaperMedia.h modelloLogicoMedia/Video.h Observers/AbstractMediaObserver.h Visitors/AbstractMediaVisitor.h Visitors/DetailView.h Visitors/EditVisitor.h Visitors/FilterVisitor.h Visitors/Query.h Visitors/WidgetVisitor.h modelloLogicoMedia/Genre/AudioGenre.h modelloLogicoMedia/Genre/BookGenre.h modelloLogicoMedia/Genre/MagazineGenre.h modelloLogicoMedia/Genre/VideoGenre.h $(DISTDIR)/
-	$(COPY_FILE) --parents Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/test_interfaccia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/test.cpp modelloLogicoMedia/Video.cpp Visitors/DetailView.cpp Visitors/EditVisitor.cpp Visitors/FilterVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Interfaccia/AudioEditView.h Interfaccia/BibliotecaMainWindow.h Interfaccia/BookEditView.h Interfaccia/DurationSlider.h Interfaccia/EditView.h Interfaccia/FilmEditView.h Interfaccia/ListWidgetMedia.h Interfaccia/ListWidgetMediaItem.h Interfaccia/MagazineEditView.h Interfaccia/MainView.h Interfaccia/MultimediaEditView.h Interfaccia/MusicSingleEditView.h Interfaccia/MyToolBar.h Interfaccia/PaperMediaEditView.h Interfaccia/SearchInterface.h Interfaccia/SearchListWidgetMedia.h Interfaccia/VideoEditView.h modelloLogicoMedia/Audio.h modelloLogicoMedia/Book.h modelloLogicoMedia/Duration.h modelloLogicoMedia/Film.h modelloLogicoMedia/ISBN.h modelloLogicoMedia/Magazine.h modelloLogicoMedia/Media.h modelloLogicoMedia/Multimedia.h modelloLogicoMedia/MusicSingle.h modelloLogicoMedia/PaperMedia.h modelloLogicoMedia/Video.h Observers/AbstractMediaObserver.h Visitors/AbstractMediaVisitor.h Visitors/DetailView.h Visitors/EditVisitor.h Visitors/FilterVisitor.h Visitors/Query.h Visitors/WidgetVisitor.h modelloLogicoMedia/Genre/AudioGenre.h modelloLogicoMedia/Genre/BookGenre.h modelloLogicoMedia/Genre/MagazineGenre.h modelloLogicoMedia/Genre/VideoGenre.h $(DISTDIR)/
+	$(COPY_FILE) --parents Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MainView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/test_interfaccia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/test.cpp modelloLogicoMedia/Video.cpp Visitors/DetailView.cpp Visitors/EditVisitor.cpp Visitors/FilterVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -478,9 +506,20 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_BibliotecaMainWindow.cpp moc_ListWidgetMedia.cpp moc_MyToolBar.cpp moc_SearchInterface.cpp
+compiler_moc_header_make_all: moc_AudioEditView.cpp moc_BibliotecaMainWindow.cpp moc_BookEditView.cpp moc_DurationSlider.cpp moc_EditView.cpp moc_FilmEditView.cpp moc_ListWidgetMedia.cpp moc_MagazineEditView.cpp moc_MainView.cpp moc_MultimediaEditView.cpp moc_MusicSingleEditView.cpp moc_MyToolBar.cpp moc_PaperMediaEditView.cpp moc_SearchInterface.cpp moc_SearchListWidgetMedia.cpp moc_VideoEditView.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_BibliotecaMainWindow.cpp moc_ListWidgetMedia.cpp moc_MyToolBar.cpp moc_SearchInterface.cpp
+	-$(DEL_FILE) moc_AudioEditView.cpp moc_BibliotecaMainWindow.cpp moc_BookEditView.cpp moc_DurationSlider.cpp moc_EditView.cpp moc_FilmEditView.cpp moc_ListWidgetMedia.cpp moc_MagazineEditView.cpp moc_MainView.cpp moc_MultimediaEditView.cpp moc_MusicSingleEditView.cpp moc_MyToolBar.cpp moc_PaperMediaEditView.cpp moc_SearchInterface.cpp moc_SearchListWidgetMedia.cpp moc_VideoEditView.cpp
+moc_AudioEditView.cpp: Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/AudioEditView.h -o moc_AudioEditView.cpp
+
 moc_BibliotecaMainWindow.cpp: Interfaccia/BibliotecaMainWindow.h \
 		Interfaccia/MyToolBar.h \
 		Observers/AbstractMediaObserver.h \
@@ -489,10 +528,87 @@ moc_BibliotecaMainWindow.cpp: Interfaccia/BibliotecaMainWindow.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BibliotecaMainWindow.h -o moc_BibliotecaMainWindow.cpp
 
+moc_BookEditView.cpp: Interfaccia/BookEditView.h \
+		Interfaccia/PaperMediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BookEditView.h -o moc_BookEditView.cpp
+
+moc_DurationSlider.cpp: Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/DurationSlider.h -o moc_DurationSlider.cpp
+
+moc_EditView.cpp: Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/EditView.h -o moc_EditView.cpp
+
+moc_FilmEditView.cpp: Interfaccia/FilmEditView.h \
+		Interfaccia/VideoEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/FilmEditView.h -o moc_FilmEditView.cpp
+
 moc_ListWidgetMedia.cpp: Interfaccia/ListWidgetMedia.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/ListWidgetMedia.h -o moc_ListWidgetMedia.cpp
+
+moc_MagazineEditView.cpp: Interfaccia/MagazineEditView.h \
+		Interfaccia/PaperMediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MagazineEditView.h -o moc_MagazineEditView.cpp
+
+moc_MainView.cpp: Interfaccia/MainView.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MainView.h -o moc_MainView.cpp
+
+moc_MultimediaEditView.cpp: Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MultimediaEditView.h -o moc_MultimediaEditView.cpp
+
+moc_MusicSingleEditView.cpp: Interfaccia/MusicSingleEditView.h \
+		Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MusicSingleEditView.h -o moc_MusicSingleEditView.cpp
 
 moc_MyToolBar.cpp: Interfaccia/MyToolBar.h \
 		Observers/AbstractMediaObserver.h \
@@ -500,10 +616,52 @@ moc_MyToolBar.cpp: Interfaccia/MyToolBar.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MyToolBar.h -o moc_MyToolBar.cpp
 
+moc_PaperMediaEditView.cpp: Interfaccia/PaperMediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/PaperMediaEditView.h -o moc_PaperMediaEditView.cpp
+
 moc_SearchInterface.cpp: Interfaccia/SearchInterface.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchInterface.h -o moc_SearchInterface.cpp
+
+moc_SearchListWidgetMedia.cpp: Interfaccia/SearchListWidgetMedia.h \
+		Interfaccia/ListWidgetMedia.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Visitors/Query.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		modelloLogicoMedia/MusicSingle.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Genre/AudioGenre.h \
+		modelloLogicoMedia/Film.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Genre/VideoGenre.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchListWidgetMedia.h -o moc_SearchListWidgetMedia.cpp
+
+moc_VideoEditView.cpp: Interfaccia/VideoEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/VideoEditView.h -o moc_VideoEditView.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -521,7 +679,16 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-AudioEditView.o: Interfaccia/AudioEditView.cpp 
+AudioEditView.o: Interfaccia/AudioEditView.cpp Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Genre/AudioGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AudioEditView.o Interfaccia/AudioEditView.cpp
 
 BibliotecaMainWindow.o: Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BibliotecaMainWindow.h \
@@ -547,18 +714,21 @@ DurationSlider.o: Interfaccia/DurationSlider.cpp Interfaccia/DurationSlider.h \
 
 EditView.o: Interfaccia/EditView.cpp Interfaccia/EditView.h \
 		Interfaccia/ListWidgetMediaItem.h \
-		modelloLogicoMedia/Media.h \
-		modelloLogicoMedia/MusicSingle.h \
-		modelloLogicoMedia/Audio.h \
-		modelloLogicoMedia/Multimedia.h \
-		modelloLogicoMedia/Duration.h \
-		modelloLogicoMedia/Genre/AudioGenre.h \
-		modelloLogicoMedia/Film.h \
-		modelloLogicoMedia/Video.h \
-		modelloLogicoMedia/Genre/VideoGenre.h
+		modelloLogicoMedia/Media.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EditView.o Interfaccia/EditView.cpp
 
-FilmEditView.o: Interfaccia/FilmEditView.cpp 
+FilmEditView.o: Interfaccia/FilmEditView.cpp Interfaccia/FilmEditView.h \
+		Interfaccia/VideoEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Film.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FilmEditView.o Interfaccia/FilmEditView.cpp
 
 ListWidgetMedia.o: Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMedia.h \
@@ -580,10 +750,53 @@ MagazineEditView.o: Interfaccia/MagazineEditView.cpp Interfaccia/MagazineEditVie
 		modelloLogicoMedia/Genre/MagazineGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MagazineEditView.o Interfaccia/MagazineEditView.cpp
 
-MultimediaEditView.o: Interfaccia/MultimediaEditView.cpp 
+MainView.o: Interfaccia/MainView.cpp Interfaccia/MainView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/BookEditView.h \
+		Interfaccia/PaperMediaEditView.h \
+		Interfaccia/EditView.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		Interfaccia/MagazineEditView.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		Interfaccia/MusicSingleEditView.h \
+		Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		Interfaccia/FilmEditView.h \
+		Interfaccia/VideoEditView.h \
+		Visitors/EditVisitor.h \
+		Visitors/WidgetVisitor.h \
+		Visitors/AbstractMediaVisitor.h \
+		Visitors/DetailView.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainView.o Interfaccia/MainView.cpp
+
+MultimediaEditView.o: Interfaccia/MultimediaEditView.cpp Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Multimedia.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultimediaEditView.o Interfaccia/MultimediaEditView.cpp
 
-MusicSingleEditView.o: Interfaccia/MusicSingleEditView.cpp 
+MusicSingleEditView.o: Interfaccia/MusicSingleEditView.cpp Interfaccia/MusicSingleEditView.h \
+		Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/MusicSingle.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Genre/AudioGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MusicSingleEditView.o Interfaccia/MusicSingleEditView.cpp
 
 MyToolBar.o: Interfaccia/MyToolBar.cpp Interfaccia/MyToolBar.h \
@@ -597,7 +810,26 @@ PaperMediaEditView.o: Interfaccia/PaperMediaEditView.cpp Interfaccia/PaperMediaE
 		modelloLogicoMedia/PaperMedia.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PaperMediaEditView.o Interfaccia/PaperMediaEditView.cpp
 
-SearchInterface.o: Interfaccia/SearchInterface.cpp Interfaccia/SearchInterface.h
+SearchInterface.o: Interfaccia/SearchInterface.cpp Interfaccia/SearchInterface.h \
+		Interfaccia/ListWidgetMedia.h \
+		Interfaccia/SearchListWidgetMedia.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Visitors/Query.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		modelloLogicoMedia/MusicSingle.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Genre/AudioGenre.h \
+		modelloLogicoMedia/Film.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchInterface.o Interfaccia/SearchInterface.cpp
 
 SearchListWidgetMedia.o: Interfaccia/SearchListWidgetMedia.cpp Interfaccia/SearchListWidgetMedia.h \
@@ -648,12 +880,27 @@ test_interfaccia.o: Interfaccia/test_interfaccia.cpp Interfaccia/BibliotecaMainW
 		Interfaccia/PaperMediaEditView.h \
 		Interfaccia/EditView.h \
 		Interfaccia/MagazineEditView.h \
+		Interfaccia/MusicSingleEditView.h \
+		Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/DurationSlider.h \
+		Interfaccia/FilmEditView.h \
+		Interfaccia/VideoEditView.h \
 		Visitors/DetailView.h \
 		Visitors/WidgetVisitor.h \
 		Visitors/AbstractMediaVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test_interfaccia.o Interfaccia/test_interfaccia.cpp
 
-VideoEditView.o: Interfaccia/VideoEditView.cpp 
+VideoEditView.o: Interfaccia/VideoEditView.cpp Interfaccia/VideoEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o VideoEditView.o Interfaccia/VideoEditView.cpp
 
 Audio.o: modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Audio.h \
@@ -762,7 +1009,35 @@ DetailView.o: Visitors/DetailView.cpp Visitors/DetailView.h \
 		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetailView.o Visitors/DetailView.cpp
 
-EditVisitor.o: Visitors/EditVisitor.cpp 
+EditVisitor.o: Visitors/EditVisitor.cpp Visitors/EditVisitor.h \
+		Visitors/WidgetVisitor.h \
+		Visitors/AbstractMediaVisitor.h \
+		Interfaccia/BookEditView.h \
+		Interfaccia/PaperMediaEditView.h \
+		Interfaccia/EditView.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		Interfaccia/MagazineEditView.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		Interfaccia/MusicSingleEditView.h \
+		Interfaccia/AudioEditView.h \
+		Interfaccia/MultimediaEditView.h \
+		Interfaccia/DurationSlider.h \
+		modelloLogicoMedia/Duration.h \
+		Interfaccia/FilmEditView.h \
+		Interfaccia/VideoEditView.h \
+		modelloLogicoMedia/MusicSingle.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Genre/AudioGenre.h \
+		modelloLogicoMedia/Film.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EditVisitor.o Visitors/EditVisitor.cpp
 
 FilterVisitor.o: Visitors/FilterVisitor.cpp modelloLogicoMedia/Book.h \
@@ -809,17 +1084,53 @@ WidgetVisitor.o: Visitors/WidgetVisitor.cpp Visitors/WidgetVisitor.h \
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
+moc_AudioEditView.o: moc_AudioEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_AudioEditView.o moc_AudioEditView.cpp
+
 moc_BibliotecaMainWindow.o: moc_BibliotecaMainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_BibliotecaMainWindow.o moc_BibliotecaMainWindow.cpp
+
+moc_BookEditView.o: moc_BookEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_BookEditView.o moc_BookEditView.cpp
+
+moc_DurationSlider.o: moc_DurationSlider.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DurationSlider.o moc_DurationSlider.cpp
+
+moc_EditView.o: moc_EditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_EditView.o moc_EditView.cpp
+
+moc_FilmEditView.o: moc_FilmEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_FilmEditView.o moc_FilmEditView.cpp
 
 moc_ListWidgetMedia.o: moc_ListWidgetMedia.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ListWidgetMedia.o moc_ListWidgetMedia.cpp
 
+moc_MagazineEditView.o: moc_MagazineEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MagazineEditView.o moc_MagazineEditView.cpp
+
+moc_MainView.o: moc_MainView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainView.o moc_MainView.cpp
+
+moc_MultimediaEditView.o: moc_MultimediaEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MultimediaEditView.o moc_MultimediaEditView.cpp
+
+moc_MusicSingleEditView.o: moc_MusicSingleEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MusicSingleEditView.o moc_MusicSingleEditView.cpp
+
 moc_MyToolBar.o: moc_MyToolBar.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MyToolBar.o moc_MyToolBar.cpp
 
+moc_PaperMediaEditView.o: moc_PaperMediaEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_PaperMediaEditView.o moc_PaperMediaEditView.cpp
+
 moc_SearchInterface.o: moc_SearchInterface.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SearchInterface.o moc_SearchInterface.cpp
+
+moc_SearchListWidgetMedia.o: moc_SearchListWidgetMedia.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SearchListWidgetMedia.o moc_SearchListWidgetMedia.cpp
+
+moc_VideoEditView.o: moc_VideoEditView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_VideoEditView.o moc_VideoEditView.cpp
 
 ####### Install
 

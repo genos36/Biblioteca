@@ -1,7 +1,5 @@
 #include "EditView.h"
 #include "../modelloLogicoMedia/Media.h"
-#include "../modelloLogicoMedia/MusicSingle.h"
-#include "../modelloLogicoMedia/Film.h"
 #include <QGridLayout>
 #include <QFileDialog>
 #include <QCoreApplication>

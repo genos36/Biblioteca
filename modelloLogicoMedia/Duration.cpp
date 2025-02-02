@@ -1,5 +1,5 @@
 #include "Duration.h"
-Duration::Duration(int h,int m,int s):sec((h>=0?h:0)*3600+((m>=0&&m<60)?m:0)*60+(s>=0&&s<60)?s:0){}
+Duration::Duration(int h,int m,int s):sec((h>=0?h:0)*3600+((m>=0&&m<60)?m:0)*60+((s>=0&&s<60)?s:0)){}
 
 int Duration::ore()const{
     return sec/3600;

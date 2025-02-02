@@ -4,20 +4,22 @@
 #include "EditView.h"
 #include "DurationSlider.h"
 
-class MultimediaEditView:public {
+class Multimedia;
+
+class MultimediaEditView:public EditView{
+    Q_OBJECT
 private:
     DurationSlider* duration;
 public:
-    MultimediaEditView();
+
+    MultimediaEditView(Multimedia&,QWidget* parent=nullptr,const QString& ImagePath =":/icons/defaultImage");
+    MultimediaEditView(QWidget* parent=nullptr,const QString& ImagePath =":/icons/defaultImage");
+
+    Duration getDuration()const;
+
+
+
 };
-
-MultimediaEditView::MultimediaEditView(/* args */)
-{
-}
-
-MultimediaEditView::~MultimediaEditView()
-{
-}
 
 
 

@@ -7,6 +7,7 @@
 class Book;
 
 class BookEditView:public PaperMediaEditView{
+    Q_OBJECT
     private:
     QLineEdit* isbn;
     QComboBox* bookGenreSelector;

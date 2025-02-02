@@ -8,6 +8,11 @@ Audio::Audio(const QString& Title,const QString& Author,int Year,
             int CurrentAvailability):
             Multimedia(Title,Author,Year,Genre,Description,Lenght,Total,CurrentAvailability){}
 
+Audio::Audio(const QString& Title,const QString& Author,int Year,
+            const AudioGenre& Genre, const QString& Description,const Duration& Lenght, int Total,
+            int CurrentAvailability):
+            Multimedia(Title,Author,Year,AudioGenreToInt(Genre),Description,Lenght,Total,CurrentAvailability){}
+
  QString Audio::intToAudioGenre(int g){
     switch(static_cast<AudioGenre>(g)){
         case AudioGenre::Rock :return "Rock";        

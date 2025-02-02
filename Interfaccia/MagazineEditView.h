@@ -6,6 +6,7 @@
 #include "../modelloLogicoMedia/Magazine.h"
 
 class MagazineEditView:public PaperMediaEditView{
+    Q_OBJECT
 private:
     QSpinBox* nEdition;
     QComboBox* frequencySelector;
