@@ -21,9 +21,9 @@ class WidgetVisitor:public AbstractMediaVisitor{
     WidgetVisitor(const WidgetVisitor&)=delete;
     WidgetVisitor& operator=(const WidgetVisitor&)=delete;
     
-    void setWidget(QWidget*);
-    public:
     
+    public:
+    void setWidget(QWidget*);
     QWidget* getWidget()const;
 
 };

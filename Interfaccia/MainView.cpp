@@ -5,18 +5,23 @@
 #include "MusicSingleEditView.h"
 #include "FilmEditView.h"
 #include "../Visitors/EditVisitor.h"
-#include "../Visitors/DetailView.h"
+#include "../Visitors/DetailVisitor.h"
+#include "DetailView.h"
 #include "MainView.h"
 #include<QMessageBox>
 
 
 
+
 MainView::MainView( QWidget* parent):
-QWidget(parent),layout(new QGridLayout(this)),viewSelector(new QStackedWidget()),detailView(nullptr),editView(nullptr),
+QWidget(parent),layout(new QGridLayout(this)),viewSelector(new QStackedWidget()),
+detailView(nullptr),editView(nullptr),
 currentMedia(nullptr),editButton(new QPushButton("Modifica")),
 cancelButton(new QPushButton("Annulla")),saveModButton(new QPushButton("Conferma")),
-createButton(new QPushButton("Crea")),deleteButton(new QPushButton("Elimina")),buttonWrapper(new QStackedWidget()){
+createButton(new QPushButton("Crea")),deleteButton(new QPushButton("Elimina")),
+buttonWrapper(new QStackedWidget()){
     //QVBoxLayout* mainLayout=new QVBoxLayout(this);
+
     layout->addWidget(viewSelector,0,0,1,2);
     editButton->setEnabled(false);
     cancelButton->setEnabled(false);
@@ -35,24 +40,191 @@ createButton(new QPushButton("Crea")),deleteButton(new QPushButton("Elimina")),b
     connect(saveModButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
     connect(deleteButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
     connect(createButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
+    //connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+
+    connect(saveModButton,&QPushButton::pressed,this,&MainView::saveAndSwitchToDetailview);
+    //connect(createButton,&QPushButton::pressed,this,&MainView::createAndSwitchToDetailview);
+    connect(editButton,&QPushButton::pressed,this,&MainView::switchToModView);
+}
+
+EditView* MainView::buildEditView(ListWidgetMediaItem* inputItem){
+        EditVisitor editViewBuilder;
+        (*inputItem)->accept(editViewBuilder);
+        return editViewBuilder.getWidget();
+}
+
+DetailView* MainView::buildDetailView(ListWidgetMediaItem* inputItem){
+        DetailVisitor detailViewBuilder;
+        (*inputItem)->accept(detailViewBuilder);
+        return detailViewBuilder.getWidget();
+}
+
+void MainView::destroyEditView(){
+    if(editView){
+        viewSelector->removeWidget(editView);
+        delete editView;
+        editView=nullptr;
+
+    }
+        
+    }
+
+void MainView::destroyDetailView(){
+    if(detailView){
+        disconnect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+        viewSelector->removeWidget(detailView);
+        delete detailView;
+        detailView=nullptr;
+        }
+
+    }
+
+
+
+void MainView::setEditView(EditView* newEditView){
+    destroyEditView();
+    editView=newEditView;
+
+    if(editView){
+        viewSelector->insertWidget(1,editView);
+    }
+}
+
+void MainView::setDetailView(DetailView* newDetailView){
+    destroyDetailView();
+    detailView=newDetailView;
+    connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+
+    if(detailView){
+        viewSelector->insertWidget(1,detailView);
+    }
 
 }
+
+void MainView::showDetailView(){
+    if(detailView){
+        viewSelector->setCurrentIndex(0);
+    }
+}
+
+void MainView::showEditView(){
+    if(editView){
+        viewSelector->setCurrentIndex(1);
+    }
+    
+}
+
+void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
+
+
+        destroyDetailView();
+        setDetailView(buildDetailView(newItem));
+        showDetailView();
+        setButtonsForViewMod();
+        currentMedia=newItem;
+        /*        
+        if(newItem){
+            currentMedia=newItem;
+            if(detailView){
+                disconnect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+                viewSelector->removeWidget(detailView);
+                delete detailView;
+                detailView=nullptr;
+                }
+           
+            DetailVisitor detailViewBuilder;
+            detailView=detailViewBuilder.getWidget();
+
+        if(detailView){
+            connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+            viewSelector->insertWidget(0,detailView);
+            detailView->setImage(currentMedia->getImagePath());
+            viewSelector->setCurrentIndex(0);
+
+            buttonWrapper->setCurrentIndex(0);            
+            }
+
+        }
+        */
+
+        
+
+    }
+
+    void MainView::setButtonsForViewMod(){
+        editButton->setEnabled(true);
+        deleteButton->setEnabled(true);    
+
+        cancelButton->setEnabled(false);
+        createButton->setEnabled(false);
+        saveModButton->setEnabled(false);
+
+        buttonWrapper->setCurrentIndex(0);
+
+    }
+
+    void MainView::setButtonsForModificationMod(){
+        cancelButton->setEnabled(true);
+        deleteButton->setEnabled(true);    
+        saveModButton->setEnabled(true);
+
+        createButton->setEnabled(false);
+        editButton->setEnabled(false);
+
+        buttonWrapper->setCurrentIndex(1);        
+    }    
+
+    void MainView::setButtonsForCreationMod(){
+
+        cancelButton->setEnabled(true);
+        createButton->setEnabled(true);
+
+        editButton->setEnabled(false);
+        deleteButton->setEnabled(false);    
+        saveModButton->setEnabled(false);
+
+        buttonWrapper->setCurrentIndex(2);
+
+    }
 
 
 void MainView::setViews(ListWidgetMediaItem* inputItem){
     if(inputItem&&inputItem!=currentMedia){
         currentMedia=inputItem;
-        detailView=new DetailView(**inputItem);
-        viewSelector->insertWidget(0,detailView->getWidget());
+        
+        ChangeDetailview(currentMedia);
+        /*
+        DetailVisitor detailViewBuilder;
+        detailView=detailViewBuilder.getWidget();
+        detailView->setImage(currentMedia->getImagePath());
+        viewSelector->insertWidget(0,detailView);
+        connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
         viewSelector->setCurrentIndex(0);
         editButton->setEnabled(true);
+
+        */
 
     }
 }
 
+
+
+
 void MainView::switchToModView(){
+    
+    destroyEditView();
+    setEditView(buildEditView(currentMedia));
+    showEditView();
+    setButtonsForModificationMod();
+ 
+/*
+ 
         //se l'editView era già impostata la elimina e la sostituisce
-        if(editView)delete editView;
+        if(editView){
+            viewSelector->removeWidget(editView);
+            delete editView;
+            editView=nullptr;
+        ;}
 
     //sistema la pulsangtiera
         cancelButton->setEnabled(true);
@@ -66,15 +238,30 @@ void MainView::switchToModView(){
     //monta la edit view
         editView=editViewGenerator.getWidget();
     //imposta la visibilità sulla edit View, bisogna reinserirlo perche il vecchio puntatore non è più valido
+        
+        if(editView){
         viewSelector->insertWidget(1,editView);
         viewSelector->setCurrentIndex(1);
+        }
+
+*/
+
 }
 
 
     void MainView::switchToCreateView(int index){
 
+
+/*
     //se l'editView era già impostata la elimina e la sostituisce
-        if(editView)delete editView;
+        if(editView){
+            viewSelector->removeWidget(editView);
+            delete editView;
+            editView=nullptr;
+            }
+
+*/
+    destroyEditView();
 
     //prevedo di connetterlo usando una QComboBox per scegliare cosa creare (libro,rivista,...)
         switch(index){
@@ -97,6 +284,10 @@ void MainView::switchToModView(){
                 saveModButton->setEnabled(false);
                 createButton->setEnabled(false);
                 }
+
+    setButtonsForCreationMod();
+    showEditView();
+    /*
     //sistema la pulsangtiera
         cancelButton->setEnabled(true);
         saveModButton->setEnabled(false);
@@ -104,8 +295,12 @@ void MainView::switchToModView(){
         buttonWrapper->setCurrentIndex(2);
 
     //imposta la visibilità sulla edit View
-        viewSelector->insertWidget(1,editView);
-        viewSelector->setCurrentIndex(1);
+        if(editView){
+            viewSelector->insertWidget(1,editView);
+            viewSelector->setCurrentIndex(1);
+        }    
+    */
+
     }
 
     void MainView::saveAndSwitchToDetailview(){
@@ -114,38 +309,31 @@ void MainView::switchToModView(){
                 editView->applyMod(currentMedia);
             }
 
+        setButtonsForViewMod();
+        showDetailView();
+
+/*
         cancelButton->setEnabled(true);
         saveModButton->setEnabled(false);
         createButton->setEnabled(false);
         editButton->setEnabled(true);
         buttonWrapper->setCurrentIndex(0);
         if(detailView){
-            delete detailView->getWidget();
-            delete detailView;
-            detailView=new DetailView(**currentMedia);
-            viewSelector->insertWidget(0,detailView->getWidget());
+            ChangeDetailview(currentMedia);
         }
         viewSelector->setCurrentIndex(0);
-        }
+         
+*/
+
+        } 
     }
-
-    void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
-        if(currentMedia!=newItem){
-            currentMedia=newItem;
-            delete detailView->getWidget();
-            delete detailView;
-            detailView=new DetailView(**newItem);            
-            viewSelector->insertWidget(0,detailView->getWidget());
-        }
-        viewSelector->setCurrentIndex(0);
-
-        buttonWrapper->setCurrentIndex(0);
-    }
-
 
     ListWidgetMediaItem* MainView::createAndSwitchToDetailview(){
+        ListWidgetMediaItem* newItem=nullptr;
+        if(editView){
+            newItem =editView->createNewMedia();
+        }
         
-        ListWidgetMediaItem* newItem =editView->createNewMedia();
         
         ChangeDetailview(newItem);
 
@@ -153,10 +341,18 @@ void MainView::switchToModView(){
         return newItem;
     }
 
-        void MainView::cancelAndSwitchToDetailview(){
+void MainView::cancelAndSwitchToDetailview(){
+
+
+/*
+
+            viewSelector->removeWidget(editView);
             delete editView;
             editView=nullptr;
 
+*/
+
+            destroyEditView();
             ChangeDetailview(currentMedia);
 
         }

@@ -6,8 +6,9 @@
 #include "MusicSingleEditView.h"
 #include "FilmEditView.h"
 
-#include "../Visitors/DetailView.h"
+#include "DetailView.h"
 #include "EditView.h"
+#include "MainView.h"
 #include "DurationSlider.h"
 #include "SearchInterface.h"
 
@@ -63,19 +64,22 @@ int main(int argc, char *argv[]) {
 
     provListaGenerica->refresh();
     provListaRicerca->refresh();
-    DetailView provaVistaLibro(prova1);
+  
+
     DetailView provaVistaRivista(rivista4);
     DetailView provaVistaMusica(CD1);
     DetailView provaVistaFilm(film1);
-    (provaVistaLibro.getWidget())->show();
-    (provaVistaRivista.getWidget())->show();
-    (provaVistaMusica.getWidget())->show();
-    (provaVistaFilm.getWidget())->show();
 
+    provaVistaRivista.show();
+    provaVistaMusica.show();
+    provaVistaFilm.show();
+ */ 
+    DetailView provaVistaLibro(prova1);
+    provaVistaLibro.show();
     qDebug()<<rivista4.getEditor();
-*/
+
 BookEditView provaEdit(prova1);
-provaEdit.show();
+//provaEdit.show();
 
 /*
 MagazineEditView provaEditMag(rivista1);
@@ -91,10 +95,14 @@ provaFilm.show();
     qDebug()<<film1.getLenght()<<Duration(1);
 
 */
+    MainView provaMainView;
+    provaMainView.ChangeDetailview(new ListWidgetMediaItem(prova1));
+    provaMainView.show();
 
     SearchInterface provaSI;
-    provaSI.show();
+    //provaSI.show();
 
+    
 
     return app.exec();
 }

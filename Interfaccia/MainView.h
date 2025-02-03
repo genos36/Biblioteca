@@ -27,9 +27,24 @@ class MainView:public QWidget{
         QStackedWidget* buttonWrapper;
 
     public:
-    
+    static EditView* buildEditView(ListWidgetMediaItem*);
+    static DetailView* buildDetailView(ListWidgetMediaItem*);  
+
     MainView( QWidget* parent=nullptr);
     
+    void destroyEditView();
+    void destroyDetailView();
+
+    void setEditView(EditView*);
+    void setDetailView(DetailView*);
+
+    void showDetailView();
+    void showEditView();
+
+    void setButtonsForViewMod();
+    void setButtonsForCreationMod();
+    void setButtonsForModificationMod();
+
     void setViews(ListWidgetMediaItem*);
 
     public slots:
