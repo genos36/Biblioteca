@@ -26,18 +26,20 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainView_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[26];
     char stringdata0[9];
     char stringdata1[25];
     char stringdata2[1];
-    char stringdata3[11];
+    char stringdata3[20];
     char stringdata4[21];
-    char stringdata5[16];
-    char stringdata6[19];
-    char stringdata7[26];
-    char stringdata8[28];
+    char stringdata5[15];
+    char stringdata6[16];
+    char stringdata7[19];
+    char stringdata8[26];
     char stringdata9[28];
-    char stringdata10[17];
+    char stringdata10[28];
+    char stringdata11[17];
+    char stringdata12[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainView_t::offsetsAndSizes) + ofs), len 
@@ -46,26 +48,30 @@ Q_CONSTINIT static const qt_meta_stringdata_MainView_t qt_meta_stringdata_MainVi
         QT_MOC_LITERAL(0, 8),  // "MainView"
         QT_MOC_LITERAL(9, 24),  // "propagateModNotification"
         QT_MOC_LITERAL(34, 0),  // ""
-        QT_MOC_LITERAL(35, 10),  // "deleteItem"
-        QT_MOC_LITERAL(46, 20),  // "ListWidgetMediaItem*"
-        QT_MOC_LITERAL(67, 15),  // "switchToModView"
-        QT_MOC_LITERAL(83, 18),  // "switchToCreateView"
-        QT_MOC_LITERAL(102, 25),  // "saveAndSwitchToDetailview"
-        QT_MOC_LITERAL(128, 27),  // "createAndSwitchToDetailview"
-        QT_MOC_LITERAL(156, 27),  // "cancelAndSwitchToDetailview"
-        QT_MOC_LITERAL(184, 16)   // "ChangeDetailview"
+        QT_MOC_LITERAL(35, 19),  // "onDeleteItemPressed"
+        QT_MOC_LITERAL(55, 20),  // "ListWidgetMediaItem*"
+        QT_MOC_LITERAL(76, 14),  // "newItemCreated"
+        QT_MOC_LITERAL(91, 15),  // "switchToModView"
+        QT_MOC_LITERAL(107, 18),  // "switchToCreateView"
+        QT_MOC_LITERAL(126, 25),  // "saveAndSwitchToDetailview"
+        QT_MOC_LITERAL(152, 27),  // "createAndSwitchToDetailview"
+        QT_MOC_LITERAL(180, 27),  // "cancelAndSwitchToDetailview"
+        QT_MOC_LITERAL(208, 16),  // "ChangeDetailview"
+        QT_MOC_LITERAL(225, 17)   // "refreshDetailView"
     },
     "MainView",
     "propagateModNotification",
     "",
-    "deleteItem",
+    "onDeleteItemPressed",
     "ListWidgetMediaItem*",
+    "newItemCreated",
     "switchToModView",
     "switchToCreateView",
     "saveAndSwitchToDetailview",
     "createAndSwitchToDetailview",
     "cancelAndSwitchToDetailview",
-    "ChangeDetailview"
+    "ChangeDetailview",
+    "refreshDetailView"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -76,27 +82,30 @@ Q_CONSTINIT static const uint qt_meta_data_MainView[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   62,    2, 0x06,    1 /* Public */,
-       3,    1,   63,    2, 0x06,    2 /* Public */,
+       1,    0,   74,    2, 0x06,    1 /* Public */,
+       3,    1,   75,    2, 0x06,    2 /* Public */,
+       5,    1,   78,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   66,    2, 0x0a,    4 /* Public */,
-       6,    1,   67,    2, 0x0a,    5 /* Public */,
-       7,    0,   70,    2, 0x0a,    7 /* Public */,
-       8,    0,   71,    2, 0x0a,    8 /* Public */,
-       9,    0,   72,    2, 0x0a,    9 /* Public */,
-      10,    1,   73,    2, 0x0a,   10 /* Public */,
+       6,    0,   81,    2, 0x0a,    6 /* Public */,
+       7,    1,   82,    2, 0x0a,    7 /* Public */,
+       8,    0,   85,    2, 0x0a,    9 /* Public */,
+       9,    0,   86,    2, 0x0a,   10 /* Public */,
+      10,    0,   87,    2, 0x0a,   11 /* Public */,
+      11,    1,   88,    2, 0x0a,   12 /* Public */,
+      12,    0,   91,    2, 0x0a,   14 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
 
  // slots: parameters
@@ -106,6 +115,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainView[] = {
     0x80000000 | 4,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -121,7 +131,10 @@ Q_CONSTINIT const QMetaObject MainView::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainView, std::true_type>,
         // method 'propagateModNotification'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'deleteItem'
+        // method 'onDeleteItemPressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<ListWidgetMediaItem *, std::false_type>,
+        // method 'newItemCreated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<ListWidgetMediaItem *, std::false_type>,
         // method 'switchToModView'
@@ -137,7 +150,9 @@ Q_CONSTINIT const QMetaObject MainView::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'ChangeDetailview'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<ListWidgetMediaItem *, std::false_type>
+        QtPrivate::TypeAndForceComplete<ListWidgetMediaItem *, std::false_type>,
+        // method 'refreshDetailView'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -149,14 +164,16 @@ void MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         (void)_t;
         switch (_id) {
         case 0: _t->propagateModNotification(); break;
-        case 1: _t->deleteItem((*reinterpret_cast< std::add_pointer_t<ListWidgetMediaItem*>>(_a[1]))); break;
-        case 2: _t->switchToModView(); break;
-        case 3: _t->switchToCreateView((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->saveAndSwitchToDetailview(); break;
-        case 5: { ListWidgetMediaItem* _r = _t->createAndSwitchToDetailview();
+        case 1: _t->onDeleteItemPressed((*reinterpret_cast< std::add_pointer_t<ListWidgetMediaItem*>>(_a[1]))); break;
+        case 2: _t->newItemCreated((*reinterpret_cast< std::add_pointer_t<ListWidgetMediaItem*>>(_a[1]))); break;
+        case 3: _t->switchToModView(); break;
+        case 4: _t->switchToCreateView((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->saveAndSwitchToDetailview(); break;
+        case 6: { ListWidgetMediaItem* _r = _t->createAndSwitchToDetailview();
             if (_a[0]) *reinterpret_cast< ListWidgetMediaItem**>(_a[0]) = std::move(_r); }  break;
-        case 6: _t->cancelAndSwitchToDetailview(); break;
-        case 7: _t->ChangeDetailview((*reinterpret_cast< std::add_pointer_t<ListWidgetMediaItem*>>(_a[1]))); break;
+        case 7: _t->cancelAndSwitchToDetailview(); break;
+        case 8: _t->ChangeDetailview((*reinterpret_cast< std::add_pointer_t<ListWidgetMediaItem*>>(_a[1]))); break;
+        case 9: _t->refreshDetailView(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -170,8 +187,15 @@ void MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         }
         {
             using _t = void (MainView::*)(ListWidgetMediaItem * );
-            if (_t _q_method = &MainView::deleteItem; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &MainView::onDeleteItemPressed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (MainView::*)(ListWidgetMediaItem * );
+            if (_t _q_method = &MainView::newItemCreated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 2;
                 return;
             }
         }
@@ -197,13 +221,13 @@ int MainView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }
@@ -215,10 +239,17 @@ void MainView::propagateModNotification()
 }
 
 // SIGNAL 1
-void MainView::deleteItem(ListWidgetMediaItem * _t1)
+void MainView::onDeleteItemPressed(ListWidgetMediaItem * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void MainView::newItemCreated(ListWidgetMediaItem * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

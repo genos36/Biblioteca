@@ -51,6 +51,8 @@ class EditView:public QWidget{
     void setImagePath(const QString&);
     void addWidget(QWidget*);
     void addLayout(QLayout *);
+    void refreshDetailView();
+    void refreshView();
 
     public slots:
     void changeImageSlot();

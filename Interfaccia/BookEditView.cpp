@@ -13,7 +13,7 @@
         layout->addWidget(newLabel,0,1,1,1);
 
         isbn->setText(book.getIsbn());
-        isbn->setInputMask("9999999999999;_");
+        isbn->setInputMask("9999999999999;");
         layout->addWidget(isbn,0,2,1,1); 
 
         //creiamo la label e posizionimo il selettore del genere
@@ -40,6 +40,7 @@
     layout->addWidget(newLabel,0,1,1,1);
     
     isbn->setText("");
+    isbn->setInputMask("9999999999999;");
     layout->addWidget(isbn,0,2,1,1); 
 
     //creiamo la label e posizionimo il selettore del genere
@@ -69,6 +70,8 @@
                 book->setIsbn(getIsbn());
                 book->setTotal(getTotal());
                 book->setCurrentAvailability(getCurrent());
+
+                targetItem->setImagePath(getImagePath());
              }
 
         }

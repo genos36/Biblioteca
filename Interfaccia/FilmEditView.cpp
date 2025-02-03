@@ -54,6 +54,8 @@
                 film->setMainActor(getMainActor());
                 film->setTotal(getTotal());
                 film->setCurrentAvailability(getCurrent());
+
+                targetItem->setImagePath(getImagePath());
              }
 
         }

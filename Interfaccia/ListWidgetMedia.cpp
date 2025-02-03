@@ -2,7 +2,9 @@
 #include "ListWidgetMediaItem.h"
 
     ListWidgetMedia::ListWidgetMedia(QWidget *parent ):
-    QListWidget(parent){}
+    QListWidget(parent){
+        connect(this,&QListWidget::itemPressed,this,&ListWidgetMedia::onItemPressed);
+    }
 
     void ListWidgetMedia::addItem(ListWidgetMediaItem* item){
         QListWidget::addItem(item);
@@ -95,3 +97,8 @@
             if(guard)l->addItem(item->clone());
         }
     }
+
+
+void ListWidgetMedia::onItemPressed(QListWidgetItem *item){
+    emit mediaItemPressed(dynamic_cast<ListWidgetMediaItem *>(item));
+}

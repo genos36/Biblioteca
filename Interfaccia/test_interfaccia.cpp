@@ -74,6 +74,8 @@ int main(int argc, char *argv[]) {
     provaVistaMusica.show();
     provaVistaFilm.show();
  */ 
+
+/*
     DetailView provaVistaLibro(prova1);
     provaVistaLibro.show();
     qDebug()<<rivista4.getEditor();
@@ -81,7 +83,7 @@ int main(int argc, char *argv[]) {
 BookEditView provaEdit(prova1);
 //provaEdit.show();
 
-/*
+
 MagazineEditView provaEditMag(rivista1);
 provaEditMag.show();
     //DurationSlider provaSlider(Duration(1));
@@ -94,15 +96,16 @@ FilmEditView provaFilm(film1);
 provaFilm.show();
     qDebug()<<film1.getLenght()<<Duration(1);
 
-*/
+
     MainView provaMainView;
-    provaMainView.ChangeDetailview(new ListWidgetMediaItem(prova1));
+    provaMainView.setViews(new ListWidgetMediaItem(prova1));
     provaMainView.show();
 
     SearchInterface provaSI;
     //provaSI.show();
-
-    
+*/
+    BibliotecaMainWindow provaMainWindow;
+    provaMainWindow.show();
 
     return app.exec();
 }

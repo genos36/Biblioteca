@@ -58,10 +58,15 @@ class MainView:public QWidget{
 
     void ChangeDetailview(ListWidgetMediaItem*);
 
+    void refreshDetailView();
+
+
     signals:
 
     void propagateModNotification();
-    void deleteItem(ListWidgetMediaItem* );
+    void onDeleteItemPressed(ListWidgetMediaItem* );
+
+    void newItemCreated(ListWidgetMediaItem*);
 
 
 

@@ -39,6 +39,12 @@ class ListWidgetMedia:public QListWidget{
     void removeItemAndSync( ListWidgetMedia* l, ListWidgetMediaItem* item);
     void addItemAndSync( ListWidgetMedia* l, ListWidgetMediaItem* item);
 
+    public slots:
+
+    void onItemPressed(QListWidgetItem *item);
+
+    signals:
+    void mediaItemPressed(ListWidgetMediaItem * mediaItem);
 };
 
 

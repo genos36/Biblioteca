@@ -54,6 +54,8 @@
                 musicSingle->setRecordLabel(getRecordLabel());
                 musicSingle->setTotal(getTotal());
                 musicSingle->setCurrentAvailability(getCurrent());
+
+                targetItem->setImagePath(getImagePath());
              }
 
         }

@@ -102,6 +102,8 @@
                 magazine->setNEdition(getEdition());
                 magazine->setTotal(getTotal());
                 magazine->setCurrentAvailability(getCurrent());
+
+                targetItem->setImagePath(getImagePath());
              }
 
         }

@@ -7,6 +7,7 @@
 #include <QScrollArea>
 #include "MyToolBar.h"
 #include "SearchInterface.h"
+#include "MainView.h"
 class SearchView;
 class SearchInterface;
 
@@ -14,18 +15,19 @@ class BibliotecaMainWindow:public QMainWindow{
      Q_OBJECT
     private:
     MyToolBar* toolBar;
-    QListWidget* mediaList;
-    SearchView* searchList;
-    QStackedWidget* views;
-    QStackedWidget* lists;
     SearchInterface* searchInterface;
-    QScrollArea* scrollArea;
+    MainView* mainView;
+    QHBoxLayout* mainLayout;
     QPushButton* addMedia;
+    QComboBox* strictTypeSelector;
+
+    static QComboBox* buildStrictTypeSelector();
 
     public:
     BibliotecaMainWindow(QWidget *parent =nullptr);
-    BibliotecaMainWindow(const BibliotecaMainWindow&)=delete;
-    const BibliotecaMainWindow& operator=(const BibliotecaMainWindow&)=delete;
+
+    signals:
+    void propagateModNotification();
 };
 
 #endif

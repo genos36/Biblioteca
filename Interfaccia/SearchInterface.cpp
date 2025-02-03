@@ -37,7 +37,7 @@ isSearchOn(false)
     layout->addWidget(cancelSearchButton,2,1,1,1);
 
     viewSelector->insertWidget(0,genericList);
-    viewSelector->insertWidget(0,searchList);
+    viewSelector->insertWidget(1,searchList);
 
     scrollArea->setWidget(viewSelector);
 
@@ -49,6 +49,9 @@ isSearchOn(false)
     connect(startSearchButton,&QPushButton::pressed,this,&SearchInterface::startSearch);
     connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::cancelSearch);
 
+    connect(genericList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
+    connect(searchList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
+     
 
 }
 
@@ -74,7 +77,11 @@ void SearchInterface::cancelSearch(){
     typeSelector->setCurrentIndex(0);
 }
 
-
+void SearchInterface::removeItem(ListWidgetMediaItem* item){
+        if(genericList&&searchList&&item){
+            genericList->removeItemAndSync(searchList,item);
+        }
+    }
 
 void SearchInterface::addItem(ListWidgetMediaItem* newItem){
     if(newItem)genericList->addItem(newItem);

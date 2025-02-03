@@ -6,10 +6,8 @@
 #include <QComboBox>
 #include <QStackedWidget>
 #include <QPushButton>
+#include "SearchListWidgetMedia.h"
 
-class SearchListWidgetMedia;
-class ListWidgetMedia;
-class ListWidgetMediaItem;
 
 
 class SearchInterface:public QWidget{
@@ -35,10 +33,13 @@ class SearchInterface:public QWidget{
     void startSearch();
     void cancelSearch();
     void addItem(ListWidgetMediaItem*);
+    void removeItem(ListWidgetMediaItem*);
 
     signals:
 
     void propagateModNotification();
+
+    void itemPressed(ListWidgetMediaItem*);
 
     
 
