@@ -5,22 +5,37 @@
 #include <QPushButton>
 #include "../Observers/AbstractMediaObserver.h"
 
-class MyToolBar:public QToolBar,public AbstractMediaObserver{
+class MyToolBar:public QToolBar{
     Q_OBJECT
 
 private:
     QPushButton* open;
     QPushButton* save;
     QPushButton* saveAs;
+    QString filePath;
+    bool isSaved;
+
 public:
     MyToolBar(QWidget *parent = nullptr);
     
-    void update(Media&)override;
-    ~MyToolBar();
+    QString getFilePath();
+    bool isFileSaved();
+
+    static int displayMessageBox();
+    
+    void useMessageBox();
 
 public slots:
+    void onOpen(); 
     void onSave();
     void onSaveAs();
+    
+    void onModDetected();
+
+signals:
+    void onOpenPressed();
+    void onSavePressed();
+    //void onSaveAsPressed();
 };
 
 #endif

@@ -49,6 +49,8 @@ class MainView:public QWidget{
 
     public slots:
 
+    void clearViews();
+
     void switchToModView();
     void switchToCreateView(int );
     void saveAndSwitchToDetailview();

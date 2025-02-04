@@ -214,16 +214,16 @@ void MainView::switchToModView(){
     //prevedo di connetterlo usando una QComboBox per scegliare cosa creare (libro,rivista,...)
         switch(index){
             case 0:
-                editView=new BookEditView();
+                setEditView(new BookEditView());
                 break;
             case 1:
-                editView=new MagazineEditView();
+                setEditView(new MagazineEditView());
                 break;
             case 2:
-                editView=new MusicSingleEditView();
+                setEditView(new MusicSingleEditView());
                 break;
             case 3:
-                editView=new FilmEditView();
+                setEditView(new FilmEditView());
                 break;
             default:
                 QMessageBox::warning(this,"Errore","qualcosa è andato storto nell'inizializzazione del costruttore");
@@ -285,3 +285,9 @@ void MainView::cancelAndSwitchToDetailview(){
             if(currentMedia)ChangeDetailview(currentMedia);
 
         }
+
+void MainView::clearViews(){
+    destroyDetailView();
+    destroyEditView();
+
+}

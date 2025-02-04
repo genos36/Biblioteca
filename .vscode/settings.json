@@ -86,6 +86,7 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "variant": "cpp",
-        "qmessagebox": "cpp"
+        "qmessagebox": "cpp",
+        "qjsonarray": "cpp"
     }
 }

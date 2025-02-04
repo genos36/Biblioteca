@@ -26,6 +26,11 @@ class BibliotecaMainWindow:public QMainWindow{
     public:
     BibliotecaMainWindow(QWidget *parent =nullptr);
 
+    public slots:
+
+    void saveToJson();
+    void openFromJson();
+
     signals:
     void propagateModNotification();
 };

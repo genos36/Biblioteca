@@ -27,6 +27,9 @@ class SearchInterface:public QWidget{
 
     static QComboBox* buildTypeSelector();
 
+    QVector<ListWidgetMediaItem*> getAllItem();
+    void removeAllItem();
+
     SearchInterface(QWidget *parent=nullptr);
 
     public slots:
@@ -34,6 +37,7 @@ class SearchInterface:public QWidget{
     void cancelSearch();
     void addItem(ListWidgetMediaItem*);
     void removeItem(ListWidgetMediaItem*);
+
 
     signals:
 

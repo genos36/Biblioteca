@@ -86,3 +86,17 @@ void SearchInterface::removeItem(ListWidgetMediaItem* item){
 void SearchInterface::addItem(ListWidgetMediaItem* newItem){
     if(newItem)genericList->addItem(newItem);
 }
+
+
+    QVector<ListWidgetMediaItem*> SearchInterface::getAllItem(){
+        QVector<ListWidgetMediaItem*> result;
+        for(int i=0;i<genericList->count();++i){
+            result.push_back(genericList->item(i));
+        }
+        return result;
+    }
+    
+    void SearchInterface::removeAllItem(){
+        genericList->clear();
+        searchList->clear();
+    }
