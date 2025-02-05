@@ -7,7 +7,11 @@
     }
 
     void ListWidgetMedia::addItem(ListWidgetMediaItem* item){
+        
+        item->setSizeHint(item->buildGenericDesing(this)->sizeHint());
         QListWidget::addItem(item);
+        setItemWidget(item,item->buildGenericDesing(this));
+
     }
 
     ListWidgetMediaItem* ListWidgetMedia::currentItem()const{

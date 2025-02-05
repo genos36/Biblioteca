@@ -13,7 +13,8 @@
         layout->addWidget(newLabel,0,1,1,1);
 
         isbn->setText(book.getIsbn());
-        isbn->setInputMask("9999999999999;");
+        isbn->setValidator(new QRegularExpressionValidator(QRegularExpression("[0-9]{0,13}"), isbn));
+        isbn->setMaxLength(13);
         layout->addWidget(isbn,0,2,1,1); 
 
         //creiamo la label e posizionimo il selettore del genere
@@ -40,7 +41,8 @@
     layout->addWidget(newLabel,0,1,1,1);
     
     isbn->setText("");
-    isbn->setInputMask("9999999999999;");
+    isbn->setValidator(new QRegularExpressionValidator(QRegularExpression("[0-9]{0,13}"), isbn));
+    isbn->setMaxLength(13);
     layout->addWidget(isbn,0,2,1,1); 
 
     //creiamo la label e posizionimo il selettore del genere
@@ -72,6 +74,7 @@
                 book->setCurrentAvailability(getCurrent());
 
                 targetItem->setImagePath(getImagePath());
+                targetItem->refreshDesing();
              }
 
         }

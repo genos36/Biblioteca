@@ -24,13 +24,19 @@ MyToolBar::MyToolBar(QWidget *parent):
 
 //se il file è già stato salvato una volta invia il segnale di salvataggio, altrimenti inizia la procedura di salvataggio con nome
     void MyToolBar::onSave(){
+        qDebug()<<"inizio il salvataggio del file";
+        
         if(!filePath.isEmpty()){
         save->setEnabled(false);
+
+        qDebug()<<"emetto il segnale per salvarlo";
         emit onSavePressed();
+        isSaved=true;
         }
         else{
             onSaveAs();
         }
+        
 
     }
 
@@ -43,7 +49,8 @@ MyToolBar::MyToolBar(QWidget *parent):
     
         filePath=newFilePath;
         emit onSavePressed();
-        save->setEnabled(false);        
+        save->setEnabled(false);     
+        isSaved=true;   
     }
 
 }

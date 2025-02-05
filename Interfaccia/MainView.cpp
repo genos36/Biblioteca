@@ -14,7 +14,7 @@
 
 
 MainView::MainView( QWidget* parent):
-QWidget(parent),layout(new QGridLayout(this)),viewSelector(new QStackedWidget()),
+QWidget(parent),layout(new QVBoxLayout(this)),viewSelector(new QStackedWidget()),
 detailView(nullptr),editView(nullptr),
 currentMedia(nullptr),editButton(new QPushButton("Modifica")),
 cancelButton(new QPushButton("Annulla")),saveModButton(new QPushButton("Conferma")),
@@ -22,22 +22,51 @@ createButton(new QPushButton("Crea")),deleteButton(new QPushButton("Elimina")),
 buttonWrapper(new QStackedWidget()){
     //QVBoxLayout* mainLayout=new QVBoxLayout(this);
 
-    layout->addWidget(viewSelector,0,0,1,2);
+    layout->addWidget(viewSelector);
     editButton->setEnabled(false);
     cancelButton->setEnabled(false);
     saveModButton->setEnabled(false);
     createButton->setEnabled(false);
+    deleteButton->setEnabled(false);
 
     buttonWrapper->insertWidget(0,editButton);
     buttonWrapper->insertWidget(1,saveModButton);
     buttonWrapper->insertWidget(2,createButton);
     buttonWrapper->setCurrentIndex(0);
 
-    layout->addWidget(cancelButton,1,0,1,1);
-    layout->addWidget(buttonWrapper,1,1,1,1);
-    layout->addWidget(deleteButton,3,1,1,1);
+    layout->addStretch();
 
-    viewSelector->setMinimumSize(viewSelector->size());
+    QHBoxLayout* secondLayout=new QHBoxLayout;
+    
+
+    secondLayout->addWidget(cancelButton);
+    secondLayout->addWidget(buttonWrapper);
+
+    layout->addLayout(secondLayout);
+    layout->addWidget(deleteButton);
+
+    //miglioramenti estetici
+    viewSelector->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    
+/*
+    editButton->setFixedHeight(cancelButton->height());
+    editButton->setFixedHeight(saveModButton->height());
+    editButton->setFixedHeight(createButton->height());
+*/
+    buttonWrapper->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Fixed);
+
+deleteButton->setStyleSheet(
+    "QPushButton {"
+    "   background-color:rgb(228, 7, 7);"  
+    "   color: white;"
+    "}"
+    "QPushButton:disabled {"
+    "   background-color:rgb(107, 1, 1);"  
+    "   color: white;"  
+    "}"
+);
+    
 
     connect(saveModButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
     connect(deleteButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
@@ -55,6 +84,11 @@ buttonWrapper(new QStackedWidget()){
         destroyEditView();
         emit onDeleteItemPressed(currentMedia);
     });
+
+    connect(deleteButton,&QPushButton::pressed,this,&MainView::clearViews);
+
+
+
 
 }
 
@@ -129,7 +163,7 @@ void MainView::showEditView(){
 
 void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
 
-
+    if(newItem){
         destroyDetailView();
         setDetailView(buildDetailView(newItem));
         showDetailView();
@@ -137,6 +171,10 @@ void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
         //if(currentMedia!=newItem)currentMedia=newItem;
         currentMedia=newItem;
         qDebug()<<viewSelector->count();
+
+    }
+
+;
 
     }
 
@@ -197,10 +235,14 @@ void MainView::setViews(ListWidgetMediaItem* inputItem){
 
 void MainView::switchToModView(){
     
+if(currentMedia){
     destroyEditView();
     setEditView(buildEditView(currentMedia));
     showEditView();
     setButtonsForModificationMod();
+
+}
+
  
 
 
@@ -252,7 +294,6 @@ void MainView::switchToModView(){
                 editView->applyMod(currentMedia);
                 
             }
-        if(!currentMedia)qDebug()<<"il puntatore current media è nullo dopo le operazioni su detail view";
         //viewSelector->removeWidget(editView);
         ChangeDetailview(currentMedia);
         //viewSelector->insertWidget(viewSelector->count(),editView);
@@ -285,10 +326,21 @@ void MainView::cancelAndSwitchToDetailview(){
             destroyEditView();
             if(currentMedia)ChangeDetailview(currentMedia);
 
+            disableButtons();
+
         }
 
 void MainView::clearViews(){
     destroyDetailView();
     destroyEditView();
-
+    currentMedia=nullptr;
+    disableButtons();
 }
+
+void MainView::disableButtons(){
+    editButton->setEnabled(false);
+    cancelButton->setEnabled(false);
+    saveModButton->setEnabled(false);
+    createButton->setEnabled(false);
+    deleteButton->setEnabled(false);
+    }

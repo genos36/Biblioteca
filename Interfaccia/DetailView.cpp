@@ -1,34 +1,14 @@
 
 
-
+#include <QScrollArea>
+#include <QTextEdit>
 #include "DetailView.h"
 #include "../modelloLogicoMedia/Book.h"
 #include "../modelloLogicoMedia/Magazine.h"
 #include "../modelloLogicoMedia/MusicSingle.h"
 #include "../modelloLogicoMedia/Film.h"
 
-/*
-    DetailView::DetailView(Media & media,QWidget* parent,const QString& ImagePath ){
-        BuildView(media, parent,ImagePath);
-
-    connect(incrementAvailability, &QPushButton::pressed, this, [this, &media]() {
-    availability->setNum(media.addToCurrentAvailability(1)); // addToCurrentAvailability incrementa la disponibilità totale(facendo i controlli) e ritorna il nuovo valore
-   // qDebug()<<media.getCurrentAvailability();
-});
-
-    connect(decrementAvailability, &QPushButton::pressed, this, [this, &media]() {
-    availability->setNum(media.RemoveFromCurrentAvailability(1)); 
-});
-
-    connect(incrementAvailability, &QPushButton::pressed,this,&DetailView::propagateModNotification);
-    connect(decrementAvailability, &QPushButton::pressed,this,&DetailView::propagateModNotification);
-
-
-    }
-*/
-
     void DetailView::BuildView(Media& media, const QString& ImagePath){
-    //setWidget(new QWidget(parent));
     layout=new QGridLayout(this);
     image=new QLabel();
     availability=new QLabel();
@@ -79,16 +59,28 @@
     newLabel=new QLabel();
     newLabel->setText(media.getGenreName());
     layout->addWidget(newLabel,3,1,1,2);
-
+    
 
     //crea e inserisce la label della descrizione
     newLabel=new QLabel();
     newLabel->setText("Descrizione:");
     layout->addWidget(newLabel,4,0,1,1);
+    newLabel->setAlignment(Qt::AlignTop);
 
     newLabel=new QLabel();
     newLabel->setText(media.getDescription());
-    layout->addWidget(newLabel,4,1,1,2);
+    newLabel->setWordWrap(true);
+    newLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+
+
+    QTextEdit* descriptionLabel=new QTextEdit();
+    descriptionLabel->setText(media.getDescription());
+    descriptionLabel->setReadOnly(true);  // Disabilita la modifica del testo
+    descriptionLabel->setWordWrapMode(QTextOption::WrapAnywhere);  // Abilita il ritorno a capo del testo
+    descriptionLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+
+    layout->addWidget(descriptionLabel,4,1,1,2);
 
     //crea e inserisce la label della disponibilità
     newLabel=new QLabel();
@@ -121,130 +113,12 @@
     availability->setNum(media.RemoveFromCurrentAvailability(1)); 
 });
 
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     connect(incrementAvailability,&QPushButton::pressed,this,&DetailView::propagateModNotification);
     connect(decrementAvailability,&QPushButton::pressed,this,&DetailView::propagateModNotification);
 
 }
-/*
-void DetailView::visitBook(Book& book){
-    //crea e inserisce la label dell'editore
-    QLabel* newLabel=new QLabel();
-    int rows=layout->rowCount()+1;
-
-    newLabel->setText("Editore:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(book.getEditor());
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-    //crea e inserisce la label del numero di pagine
-    newLabel=new QLabel();
-    newLabel->setText("Pagine:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(QString::number(book.getPages()));
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-    //crea e inserisce la label dell'isbn
-    newLabel=new QLabel();
-    newLabel->setText("ISBN:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(book.getIsbn());
-    layout->addWidget(newLabel,rows,1,1,2);
-
-}
-
-    void DetailView::visitMagazine(Magazine& magazine){
-    //crea e inserisce la label dell'editore
-    QLabel* newLabel=new QLabel();
-    int rows=layout->rowCount()+1;
-
-    newLabel->setText("Editore:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(magazine.getEditor());
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-
-    //crea e inserisce la label del numero di pagine
-    newLabel=new QLabel();
-    newLabel->setText("Pagine:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(QString::number(magazine.getPages()));
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-
-    //crea e inserisce la label della frequenza di pubblicazione
-    newLabel=new QLabel();
-    newLabel->setText("Frequenza:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(magazine.getFrequencyString());
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-
-    //crea e inserisce la label dell'edizione
-    newLabel=new QLabel();
-    newLabel->setText("Edizione numero:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(QString::number(magazine.getNEdition()));
-    layout->addWidget(newLabel,rows,1,1,2);
-    }
-
-
-    void DetailView::visitMusicSingle(MusicSingle& musicSingle){
-    //crea e inserisce la label della durata
-    QLabel* newLabel=new QLabel();
-    int rows=layout->rowCount()+1;
-    newLabel->setText("Durata:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    newLabel=new QLabel();
-    newLabel->setText(musicSingle.getLenght());
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-
-    //crea e inserisce la label della etichetta discografica
-    newLabel=new QLabel();
-    newLabel->setText("Etichetta discografica:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(musicSingle.getRecordLabel());
-    layout->addWidget(newLabel,rows,1,1,2);
-    }
-
-
-    void DetailView::visitFilm(Film& film){
-            //crea e inserisce la label della durata
-    QLabel* newLabel=new QLabel();
-    int rows=layout->rowCount()+1;
-    newLabel->setText("Durata:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    newLabel=new QLabel();
-    newLabel->setText(film.getLenght());
-    layout->addWidget(newLabel,rows,1,1,2);
-    ++rows;
-
-    //crea e inserisce la label dell'attore protagonista
-    newLabel=new QLabel();
-    newLabel->setText("Etichetta discografica:");
-    layout->addWidget(newLabel,rows,0,1,1);
-    
-    newLabel=new QLabel();
-    newLabel->setText(film.getMainActor());
-    layout->addWidget(newLabel,rows,1,1,2);
-    }
-*/
 
 
 DetailView::DetailView(Book & book,QWidget* parent,const QString& ImagePath ):

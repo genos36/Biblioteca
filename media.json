@@ -16,7 +16,7 @@
     {
         "author": "Beowulf poet",
         "currentAv": 2,
-        "description": "The protagonist Beowulf, a hero of the Geats, comes to the aid of Hrothgar, king of the Danes, whose great hall, Heorot, is plagued by the monster Grendel. Beowulf kills Grendel with his bare hands, then kills Grendel's mother with a giant's sword that he found in her lair.\r\n\r\nLater in his life, Beowulf becomes king of the Geats, and finds his realm terrorised by a dragon, some of whose treasure had been stolen from his hoard in a burial mound. He attacks the dragon with the help of his thegns or servants, but they do not succeed. Beowulf decides to follow the dragon to its lair at Earnanæs, but only his young Swedish relative Wiglaf, whose name means \"remnant of valour\",[a] dares to join him. Beowulf finally slays the dragon, but is mortally wounded in the struggle. He is cremated and a burial mound by the sea is erected in his honour.",
+        "description": "The protagonist Beowulf, a hero of the Geats, comes to the aid of Hrothgar, king of the Danes, whose great hall, Heorot, is plagued by the monster Grendel. Beowulf kills Grendel with his bare hands, then kills Grendel's mother with a giant's sword that he found in her lair.\n\nLater in his life, Beowulf becomes king of the Geats, and finds his realm terrorised by a dragon, some of whose treasure had been stolen from his hoard in a burial mound. He attacks the dragon with the help of his thegns or servants, but they do not succeed. Beowulf decides to follow the dragon to its lair at Earnanæs, but only his young Swedish relative Wiglaf, whose name means \"remnant of valour\",[a] dares to join him. Beowulf finally slays the dragon, but is mortally wounded in the struggle. He is cremated and a burial mound by the sea is erected in his honour.",
         "editor": "Britannica",
         "genre": 1,
         "imagePath": "./images/beowulf.jpg",
@@ -29,7 +29,7 @@
     },
     {
         "author": "Barbascura X",
-        "currentAv": 0,
+        "currentAv": 5,
         "description": "Scienza Brutta",
         "editor": "Mondadori",
         "frequency": 0,
@@ -59,7 +59,7 @@
     },
     {
         "author": "gjleahrpihgf",
-        "currentAv": 2,
+        "currentAv": 1,
         "description": "fcawrbhgtdns bgnsr",
         "editor": "vouge",
         "frequency": 0,
@@ -74,7 +74,7 @@
     },
     {
         "author": "Nanowar of stell",
-        "currentAv": 7,
+        "currentAv": 3,
         "description": "Sfreccia solitario nei boschi dell'est\r\n(Oh, oh, oh, oh, oh)\r\nErrabondo, solo il vento la sua via può indicar",
         "genre": 4,
         "hour": 0,

@@ -37,6 +37,10 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
     secondLayout->addWidget(addMedia);
 
     mainLayout->addLayout(secondLayout);
+    
+    searchInterface->setFixedWidth(300);
+    strictTypeSelector->setFixedWidth(300);
+    addMedia->setFixedWidth(300);
 
 
     
@@ -196,7 +200,7 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
                         )               //chiude il costruttore di ListWidgetMediaItem
                     );                  //lo aggiunge alla lista                    
                 }
-                else if(mediaObject.value("type").toString()=="musicSingle"){
+                else if(mediaObject.value("type").toString()=="film"){
                     searchInterface->addItem(
                         new ListWidgetMediaItem(
                             Film(
@@ -226,24 +230,32 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
 
 
     void BibliotecaMainWindow::closeEvent(QCloseEvent *event){
-        switch(MyToolBar::displayMessageBox()){
-            case QMessageBox::Save:
-            //save was Pressed
-                event->accept();
-            break;
-            case QMessageBox::Discard:
-                // nothing to do
-                break;
-            case QMessageBox::Cancel:
-                // Cancel was clicked
-                event->ignore();
-                //interrupt the opening of a newFile
-                break;
-            default:
-                  QMessageBox::warning(this,"Errore","qualcosa è andato storto");
-                break;        
 
+        if(!toolBar->isFileSaved()){
+            switch(MyToolBar::displayMessageBox()){
+                case QMessageBox::Save:
+                //save was Pressed
+                    toolBar->onSave();
+                break;
+                case QMessageBox::Discard:
+                    // nothing to do
+                    event->accept();
+                    break;
+                case QMessageBox::Cancel:
+                    // Cancel was clicked
+                    event->ignore();
+                    //interrupt the opening of a newFile
+                    break;
+                default:
+                      QMessageBox::warning(this,"Errore","qualcosa è andato storto");
+                    break;        
+
+        }            
         }
+        else{
+            event->accept();
+        }
+
     }
 
 

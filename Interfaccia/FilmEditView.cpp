@@ -56,6 +56,7 @@
                 film->setCurrentAvailability(getCurrent());
 
                 targetItem->setImagePath(getImagePath());
+                targetItem->refreshDesing();
              }
 
         }

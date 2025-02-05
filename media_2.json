@@ -1,14 +1,14 @@
 [
     {
-        "author": "fabea",
+        "author": "",
         "currentAv": 0,
-        "description": "aefbadf",
-        "editor": "fsbvadf",
+        "description": "adbgfrabdf",
+        "editor": "bdebf ",
         "genre": 0,
         "imagePath": ":/icons/defaultImage",
-        "isbn": "0000000000333",
+        "isbn": "0000000045664",
         "pages": 0,
-        "title": "sadfbgaerbg",
+        "title": "befbrgs",
         "totalAv": 0,
         "type": "book",
         "year": 0
@@ -16,15 +16,31 @@
     {
         "author": "",
         "currentAv": 0,
-        "description": "zfxbzdf",
-        "editor": "ddbfzdf",
+        "description": "dgbdgsbgfg",
+        "editor": "dbgfdgsb",
+        "frequency": 0,
         "genre": 0,
         "imagePath": ":/icons/defaultImage",
-        "isbn": "0000000000000",
+        "nEdition": 1,
         "pages": 0,
-        "title": "dfb dgsbdbfa",
+        "title": "bsebv",
         "totalAv": 0,
-        "type": "book",
+        "type": "magazine",
+        "year": 0
+    },
+    {
+        "author": "",
+        "currentAv": 0,
+        "description": "cc gfb fs",
+        "genre": 0,
+        "hour": 0,
+        "imagePath": ":/icons/defaultImage",
+        "minutes": 0,
+        "recordLabel": "dsbsdf",
+        "second": 0,
+        "title": "dsgbfs",
+        "totalAv": 0,
+        "type": "musicSingle",
         "year": 0
     }
 ]

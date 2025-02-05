@@ -2,6 +2,7 @@
 #define LISTWIDGETMEDIAITEM_H
 #include <QListWidgetItem>
 #include <QVector>
+#include <QLabel>
 #include <QSharedPointer>
 #include "../modelloLogicoMedia/Media.h"
 
@@ -10,10 +11,13 @@ class ListWidgetMediaItem:public QListWidgetItem{
     QSharedPointer<Media> media;
     QString imagePath;
 
-    ListWidgetMediaItem(const ListWidgetMediaItem&)=default;
-    ListWidgetMediaItem& operator=(const ListWidgetMediaItem &)=default;
+    QLabel* titleLabel;
+    QLabel* authorLabel;
+    QLabel* yearLabel;
+    
 
     public:
+    QWidget* buildGenericDesing(QWidget* parent=nullptr); 
     ListWidgetMediaItem(const Media&,const QString& ImagePath =":/icons/defaultImage",QListWidget * =nullptr);
 
     Media& operator*();
@@ -28,6 +32,8 @@ class ListWidgetMediaItem:public QListWidgetItem{
 
     bool operator==(const ListWidgetMediaItem&);
     bool operator!=(const ListWidgetMediaItem&);
+
+    void refreshDesing();
 };
 
 #endif

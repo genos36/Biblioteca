@@ -46,6 +46,17 @@ isSearchOn(false)
 
     mainLayout->addWidget(scrollArea);
 
+    //aggiustamenti alla taglia
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    
+
+
+
+
+
     connect(startSearchButton,&QPushButton::pressed,this,&SearchInterface::startSearch);
     connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::cancelSearch);
 
