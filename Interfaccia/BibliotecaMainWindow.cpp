@@ -5,6 +5,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QMessageBox>
+#include <QCloseEvent>
+#include <QShortcut>
 #include "../Visitors/JsonVisitor.h"
 
 BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
@@ -61,6 +64,9 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
     connect(this,&BibliotecaMainWindow::propagateModNotification,toolBar,&MyToolBar::onModDetected);
     connect(toolBar,&MyToolBar::onSavePressed,this,&BibliotecaMainWindow::saveToJson);
     connect(toolBar,&MyToolBar::onOpenPressed,this,&BibliotecaMainWindow::openFromJson);
+
+    //shortcut salvataggio dati
+    setUpShortcuts();
 
 }
 
@@ -215,4 +221,34 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
 
 
 
+    }
+
+
+
+    void BibliotecaMainWindow::closeEvent(QCloseEvent *event){
+        switch(MyToolBar::displayMessageBox()){
+            case QMessageBox::Save:
+            //save was Pressed
+                event->accept();
+            break;
+            case QMessageBox::Discard:
+                // nothing to do
+                break;
+            case QMessageBox::Cancel:
+                // Cancel was clicked
+                event->ignore();
+                //interrupt the opening of a newFile
+                break;
+            default:
+                  QMessageBox::warning(this,"Errore","qualcosa è andato storto");
+                break;        
+
+        }
+    }
+
+
+
+    void BibliotecaMainWindow::setUpShortcuts(){
+            QShortcut* saveShortcut = new QShortcut(QKeySequence("Ctrl+s"), this);
+            connect(saveShortcut,&QShortcut::activated,toolBar,&MyToolBar::onSave);
     }

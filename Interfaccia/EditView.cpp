@@ -11,7 +11,7 @@ EditView::EditView(Media& media,QWidget* parent,const QString& ImagePath):
     QWidget(parent),mainLayout(new QVBoxLayout(this)),
     image(new QLabel()),changeImage(new QPushButton()),
     title(new QLineEdit()),author(new QLineEdit()),
-    year(new QSpinBox()),description(new QLineEdit()),total(new QSpinBox()),
+    year(new QSpinBox()),description(new QTextEdit()),total(new QSpinBox()),
     current(new QSpinBox()),cancel(new QPushButton()),confirm(new QPushButton()),
     imagePath(ImagePath){
 
@@ -89,7 +89,7 @@ EditView::EditView(QWidget* parent,const QString& ImagePath):
     QWidget(parent),mainLayout(new QVBoxLayout(this)),
     image(new QLabel()),changeImage(new QPushButton()),
     title(new QLineEdit()),author(new QLineEdit()),
-    year(new QSpinBox()),description(new QLineEdit()),total(new QSpinBox()),
+    year(new QSpinBox()),description(new QTextEdit()),total(new QSpinBox()),
     current(new QSpinBox()),cancel(new QPushButton()),confirm(new QPushButton()),
     imagePath(ImagePath){
 
@@ -182,7 +182,7 @@ EditView::EditView(QWidget* parent,const QString& ImagePath):
         return year->value();
     }
     QString EditView::getDescription()const{
-        return description->text();
+        return description->toPlainText();
     }
     int EditView::getTotal()const{
         return total->value();

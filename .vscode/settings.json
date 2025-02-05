@@ -87,6 +87,7 @@
         "thread": "cpp",
         "variant": "cpp",
         "qmessagebox": "cpp",
-        "qjsonarray": "cpp"
+        "qjsonarray": "cpp",
+        "qcloseevent": "cpp"
     }
 }

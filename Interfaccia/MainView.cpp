@@ -136,6 +136,7 @@ void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
         setButtonsForViewMod();
         //if(currentMedia!=newItem)currentMedia=newItem;
         currentMedia=newItem;
+        qDebug()<<viewSelector->count();
 
     }
 

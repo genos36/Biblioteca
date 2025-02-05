@@ -24,7 +24,7 @@ QString Magazine::intToMagazineGenre(int g){
     switch(static_cast<MagazineGenre>(g)){
         case MagazineGenre::currentAffairs : return "Attualità";
         case MagazineGenre::scientific : return "Scientifica";
-        default :return "Altri";
+        default :return "Altro";
     }
 }
 

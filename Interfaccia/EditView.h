@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QTextEdit>
 #include "ListWidgetMediaItem.h"
 class Media;
 class Book;
@@ -23,7 +24,7 @@ class EditView:public QWidget{
     QLineEdit* title;
     QLineEdit* author;
     QSpinBox* year;
-    QLineEdit* description;
+    QTextEdit* description;
     QSpinBox* total;
     QSpinBox* current;
 

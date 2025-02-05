@@ -40,7 +40,7 @@ QString Book::intToBookGenre(int g){
         case BookGenre::Fantasy: return "Fantasy";
         case BookGenre::Sci_fy: return "Fantascienza";
         case BookGenre::Thriller : return "Thriller";
-        default: return "Unknown";
+        default: return "Altro";
     }
 }
 

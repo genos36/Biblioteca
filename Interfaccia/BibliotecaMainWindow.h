@@ -23,8 +23,13 @@ class BibliotecaMainWindow:public QMainWindow{
 
     static QComboBox* buildStrictTypeSelector();
 
+    void setUpShortcuts();
+
     public:
     BibliotecaMainWindow(QWidget *parent =nullptr);
+    protected:
+
+    void closeEvent(QCloseEvent *event) override;
 
     public slots:
 
