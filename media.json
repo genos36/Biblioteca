@@ -4,7 +4,7 @@
         "currentAv": 0,
         "description": "Libro del corso di programmazione a oggetti",
         "editor": "Libreria Progetto",
-        "genre": 0,
+        "genre": 1,
         "imagePath": "./images/pao.jpg",
         "isbn": "9788831901710",
         "pages": 379,

@@ -7,7 +7,8 @@
     il parametro 1001 serve a QlistWidgetItem per capire che è un tipo definito da utente*/
     ListWidgetMediaItem::ListWidgetMediaItem(const Media& m,const QString& ImagePath ,QListWidget * parent):
     QListWidgetItem(parent,1001),media(m.clone()),imagePath(ImagePath),
-    titleLabel(new QLabel()),authorLabel(new QLabel()),yearLabel(new QLabel()){}
+    titleLabel(new QLabel(media->getTitle())),authorLabel(new QLabel(media->getAuthor())),
+    yearLabel(new QLabel(QString::number(media->getYear()))){}
 
 
     //oveloading di operator* per l'accesso a media
@@ -58,9 +59,9 @@
         authorLabel->setText(media->getAuthor());
         yearLabel->setText(QString::number(media->getYear()));
 
-        titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        authorLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        yearLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        titleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        authorLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        yearLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         layout->addWidget(titleLabel);
         layout->addWidget(authorLabel);
@@ -84,5 +85,41 @@
 
 
         }
+
+    }
+
+        ListWidgetMediaItem::ListWidgetMediaItem(const ListWidgetMediaItem& item):
+        QListWidgetItem(item),
+        media(item.media),imagePath(item.imagePath),titleLabel(new QLabel()),
+        authorLabel(new QLabel()),yearLabel(new QLabel()){
+        }
+
+    ListWidgetMediaItem::~ListWidgetMediaItem(){
+        /*
+        delete titleLabel;
+        delete authorLabel;
+        delete yearLabel;
+        titleLabel=nullptr;
+        authorLabel=nullptr;
+        yearLabel=nullptr;        
+        */
+
+        
+    }
+
+    ListWidgetMediaItem& ListWidgetMediaItem::operator=(const ListWidgetMediaItem& item){
+
+        if(&item!=this){
+            operator=(item);
+            media=item.media;
+            imagePath=item.imagePath;
+            titleLabel->setText(media->getTitle());
+            authorLabel->setText(media->getAuthor());
+            yearLabel->setText(QString::number(media->getYear()));
+
+        }
+
+        return *this;
+
 
     }

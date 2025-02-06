@@ -40,7 +40,7 @@ class SearchInterface:public QWidget{
 
 
     signals:
-
+    void onChangeViewPressed();
     void propagateModNotification();
 
     void itemPressed(ListWidgetMediaItem*);

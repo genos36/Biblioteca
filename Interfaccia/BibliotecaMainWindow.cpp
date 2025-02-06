@@ -69,6 +69,7 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
     connect(toolBar,&MyToolBar::onSavePressed,this,&BibliotecaMainWindow::saveToJson);
     connect(toolBar,&MyToolBar::onOpenPressed,this,&BibliotecaMainWindow::openFromJson);
 
+    connect(searchInterface,&SearchInterface::onChangeViewPressed,mainView,&MainView::clearViews);
     //shortcut salvataggio dati
     setUpShortcuts();
 
@@ -117,6 +118,8 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
     }
 
     void BibliotecaMainWindow::openFromJson(){
+        searchInterface->cancelSearch();
+        mainView->clearViews();
         QFile file(toolBar->getFilePath());
 
         if(!file.open(QIODevice::ReadOnly|QIODevice::Text)){

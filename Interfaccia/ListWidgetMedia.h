@@ -31,6 +31,7 @@ class ListWidgetMedia:public QListWidget{
     ListWidgetMediaItem* takeItem(int row);
 
     void refresh();
+    void clear();
 
     QVector<ListWidgetMediaItem*> getAllMediaItem()const;
     QVector<Media*> getAllMedia()const;

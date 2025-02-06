@@ -63,6 +63,8 @@ isSearchOn(false)
     connect(genericList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
     connect(searchList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
      
+    connect(startSearchButton,&QPushButton::pressed,this,&SearchInterface::onChangeViewPressed);
+    connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::onChangeViewPressed);
 
 }
 
@@ -72,8 +74,12 @@ void SearchInterface::startSearch(){
     cancelSearchButton->setEnabled(true);
     searchList->setQuery(Query(text->text()));
     searchList->clear();
+
+    viewSelector->setCurrentIndex(1);
+    //è importante che il cambio di indice del Stacked Widget rimanga prima della crazione della lista di ricerca
+    //in caso contrario si verificano glitch grafici
     searchList->createFilterSearch(*genericList,typeSelector->currentIndex());
-    viewSelector->setCurrentIndex(1);  
+      
     }
 
 }
@@ -90,7 +96,8 @@ void SearchInterface::cancelSearch(){
 
 void SearchInterface::removeItem(ListWidgetMediaItem* item){
         if(genericList&&searchList&&item){
-            genericList->removeItemAndSync(searchList,item);
+            if(!isSearchOn)genericList->removeItemAndSync(searchList,item);
+            else searchList->removeItemAndSync(genericList,item);
         }
     }
 

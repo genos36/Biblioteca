@@ -68,6 +68,7 @@
 
     void ListWidgetMedia::removeItemAndSync(ListWidgetMedia* l, ListWidgetMediaItem* item){
         if(item&& row(item)!=-1){
+            delete itemWidget(item);
             delete takeItem(row(item));
         }
         if(l){
@@ -83,6 +84,7 @@
 
     void ListWidgetMedia::removeItem(ListWidgetMediaItem* item){
         if(item&& row(item)!=-1){
+            delete itemWidget(item);
             delete takeItem(row(item));            
         }
     }
@@ -106,3 +108,11 @@
 void ListWidgetMedia::onItemPressed(QListWidgetItem *item){
     emit mediaItemPressed(dynamic_cast<ListWidgetMediaItem *>(item));
 }
+
+    void ListWidgetMedia::clear(){
+        for(int i=0;i<count();i++){
+            if(item(i))delete itemWidget(item(i));
+
+        }
+        QListWidget::clear();
+    }
