@@ -15,7 +15,6 @@ class SearchInterface:public QWidget{
     private:
     QLineEdit* text;
     QComboBox* typeSelector;
-    QPushButton* startSearchButton;
     QPushButton* cancelSearchButton;
     QScrollArea* scrollArea;
     QStackedWidget* viewSelector;

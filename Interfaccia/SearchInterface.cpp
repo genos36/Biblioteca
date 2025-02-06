@@ -20,7 +20,7 @@ QComboBox* SearchInterface::buildTypeSelector(){
 SearchInterface::SearchInterface(QWidget *parent):
 QWidget(parent),
 text(new QLineEdit(this)),typeSelector(buildTypeSelector()),
-startSearchButton(new QPushButton("Cerca",this)),cancelSearchButton(new QPushButton("Annulla",this)),
+cancelSearchButton(new QPushButton("Annulla",this)),
 scrollArea(new QScrollArea()),viewSelector(new QStackedWidget(scrollArea)),
 genericList(new ListWidgetMedia(viewSelector)),searchList(new SearchListWidgetMedia(Query(""),viewSelector)),
 isSearchOn(false)
@@ -32,7 +32,6 @@ isSearchOn(false)
     layout->addWidget(text,0,1,1,2);
     layout->addWidget(new QLabel("Filtra per tipo: ",this),1,0,1,1);
     layout->addWidget(typeSelector,1,1,1,2);
-    layout->addWidget(startSearchButton,2,2,1,1);
     cancelSearchButton->setEnabled(false);
     layout->addWidget(cancelSearchButton,2,1,1,1);
 
@@ -57,13 +56,15 @@ isSearchOn(false)
 
 
 
-    connect(startSearchButton,&QPushButton::pressed,this,&SearchInterface::startSearch);
+    connect(text,&QLineEdit::textChanged,this,&SearchInterface::startSearch);
+    connect(typeSelector,&QComboBox::currentIndexChanged,this,&SearchInterface::startSearch);
+    //connect(text,&QLineEdit::textChanged,searchList,&SearchListWidgetMedia::setQuery);
     connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::cancelSearch);
 
     connect(genericList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
     connect(searchList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
      
-    connect(startSearchButton,&QPushButton::pressed,this,&SearchInterface::onChangeViewPressed);
+    connect(text,&QLineEdit::textChanged,this,&SearchInterface::onChangeViewPressed);
     connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::onChangeViewPressed);
 
 }
