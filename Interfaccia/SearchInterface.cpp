@@ -126,11 +126,14 @@ void SearchInterface::addItem(ListWidgetMediaItem* newItem){
         if(newItem)genericList->addItem(newItem);
         viewSelector->setCurrentIndex(1);
         startSearch();
+        searchList->clearSelection();
+        
     }
     else{
         if(newItem)genericList->addItem(newItem);
-        
+        genericList->clearSelection();
     }
+    
 }
 
 
