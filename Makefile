@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = Interfaccia/AudioEditView.cpp \
+SOURCES       = main.cpp \
+		Interfaccia/AudioEditView.cpp \
 		Interfaccia/BibliotecaMainWindow.cpp \
 		Interfaccia/BookEditView.cpp \
 		Interfaccia/DetailView.cpp \
@@ -106,7 +107,8 @@ SOURCES       = Interfaccia/AudioEditView.cpp \
 		moc_SearchInterface.cpp \
 		moc_SearchListWidgetMedia.cpp \
 		moc_VideoEditView.cpp
-OBJECTS       = AudioEditView.o \
+OBJECTS       = main.o \
+		AudioEditView.o \
 		BibliotecaMainWindow.o \
 		BookEditView.o \
 		DetailView.o \
@@ -266,7 +268,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		modelloLogicoMedia/Genre/AudioGenre.h \
 		modelloLogicoMedia/Genre/BookGenre.h \
 		modelloLogicoMedia/Genre/MagazineGenre.h \
-		modelloLogicoMedia/Genre/VideoGenre.h Interfaccia/AudioEditView.cpp \
+		modelloLogicoMedia/Genre/VideoGenre.h main.cpp \
+		Interfaccia/AudioEditView.cpp \
 		Interfaccia/BibliotecaMainWindow.cpp \
 		Interfaccia/BookEditView.cpp \
 		Interfaccia/DetailView.cpp \
@@ -472,7 +475,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents Interfaccia/AudioEditView.h Interfaccia/BibliotecaMainWindow.h Interfaccia/BookEditView.h Interfaccia/DetailView.h Interfaccia/DurationSlider.h Interfaccia/EditView.h Interfaccia/FilmEditView.h Interfaccia/ListWidgetMedia.h Interfaccia/ListWidgetMediaItem.h Interfaccia/MagazineEditView.h Interfaccia/MainView.h Interfaccia/MultimediaEditView.h Interfaccia/MusicSingleEditView.h Interfaccia/MyToolBar.h Interfaccia/PaperMediaEditView.h Interfaccia/SearchInterface.h Interfaccia/SearchListWidgetMedia.h Interfaccia/VideoEditView.h modelloLogicoMedia/Audio.h modelloLogicoMedia/Book.h modelloLogicoMedia/Duration.h modelloLogicoMedia/Film.h modelloLogicoMedia/ISBN.h modelloLogicoMedia/Magazine.h modelloLogicoMedia/Media.h modelloLogicoMedia/Multimedia.h modelloLogicoMedia/MusicSingle.h modelloLogicoMedia/PaperMedia.h modelloLogicoMedia/Video.h Observers/AbstractMediaObserver.h Visitors/AbstractMediaVisitor.h Visitors/DetailVisitor.h Visitors/EditVisitor.h Visitors/FilterVisitor.h Visitors/JsonVisitor.h Visitors/Query.h Visitors/WidgetVisitor.h modelloLogicoMedia/Genre/AudioGenre.h modelloLogicoMedia/Genre/BookGenre.h modelloLogicoMedia/Genre/MagazineGenre.h modelloLogicoMedia/Genre/VideoGenre.h $(DISTDIR)/
-	$(COPY_FILE) --parents Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DetailView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MainView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/test_interfaccia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/test.cpp modelloLogicoMedia/Video.cpp Visitors/DetailVisitor.cpp Visitors/EditVisitor.cpp Visitors/FilterVisitor.cpp Visitors/JsonVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DetailView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MainView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/test_interfaccia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/test.cpp modelloLogicoMedia/Video.cpp Visitors/DetailVisitor.cpp Visitors/EditVisitor.cpp Visitors/FilterVisitor.cpp Visitors/JsonVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -732,6 +735,32 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
+
+main.o: main.cpp Interfaccia/BibliotecaMainWindow.h \
+		Interfaccia/MyToolBar.h \
+		Observers/AbstractMediaObserver.h \
+		Interfaccia/SearchInterface.h \
+		Interfaccia/SearchListWidgetMedia.h \
+		Interfaccia/ListWidgetMedia.h \
+		Interfaccia/ListWidgetMediaItem.h \
+		modelloLogicoMedia/Media.h \
+		Visitors/Query.h \
+		modelloLogicoMedia/Book.h \
+		modelloLogicoMedia/PaperMedia.h \
+		modelloLogicoMedia/ISBN.h \
+		modelloLogicoMedia/Genre/BookGenre.h \
+		modelloLogicoMedia/Magazine.h \
+		modelloLogicoMedia/Genre/MagazineGenre.h \
+		modelloLogicoMedia/MusicSingle.h \
+		modelloLogicoMedia/Audio.h \
+		modelloLogicoMedia/Multimedia.h \
+		modelloLogicoMedia/Duration.h \
+		modelloLogicoMedia/Genre/AudioGenre.h \
+		modelloLogicoMedia/Film.h \
+		modelloLogicoMedia/Video.h \
+		modelloLogicoMedia/Genre/VideoGenre.h \
+		Interfaccia/MainView.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 AudioEditView.o: Interfaccia/AudioEditView.cpp Interfaccia/AudioEditView.h \
 		Interfaccia/MultimediaEditView.h \
