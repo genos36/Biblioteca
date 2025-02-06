@@ -85,6 +85,9 @@ void SearchInterface::startSearch(){
     searchList->createFilterSearch(*genericList,typeSelector->currentIndex());
       
     }
+    else{
+        cancelSearch();
+    }
 
 }
 
@@ -122,9 +125,11 @@ void SearchInterface::addItem(ListWidgetMediaItem* newItem){
         viewSelector->setCurrentIndex(0);
         if(newItem)genericList->addItem(newItem);
         viewSelector->setCurrentIndex(1);
+        startSearch();
     }
     else{
         if(newItem)genericList->addItem(newItem);
+        
     }
 }
 

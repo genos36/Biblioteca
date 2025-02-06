@@ -62,6 +62,7 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
 
     connect(mainView,&MainView::onDeleteItemPressed,searchInterface,&SearchInterface::removeItem);
     connect(mainView,&MainView::newItemCreated,searchInterface,&SearchInterface::addItem);
+    connect(mainView,&MainView::onSaveModPressed,searchInterface,&SearchInterface::startSearch);
     connect(searchInterface,&SearchInterface::itemPressed,mainView,&MainView::ChangeDetailview);
 
     //connect per il salvataggio file

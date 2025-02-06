@@ -74,6 +74,7 @@ deleteButton->setStyleSheet(
     //connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
 
     connect(saveModButton,&QPushButton::pressed,this,&MainView::saveAndSwitchToDetailview);
+    connect(saveModButton,&QPushButton::pressed,this,&MainView::onSaveModPressed);
     //connect(createButton,&QPushButton::pressed,this,&MainView::createAndSwitchToDetailview);
     connect(editButton,&QPushButton::pressed,this,&MainView::switchToModView);
     connect(cancelButton,&QPushButton::pressed,this,&MainView::cancelAndSwitchToDetailview);

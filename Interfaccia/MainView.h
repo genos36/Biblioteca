@@ -71,7 +71,7 @@ class MainView:public QWidget{
 
     void newItemCreated(ListWidgetMediaItem*);
 
-
+    void onSaveModPressed();
 
 
 
