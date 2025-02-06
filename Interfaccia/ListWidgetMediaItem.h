@@ -18,9 +18,12 @@ class ListWidgetMediaItem:public QListWidgetItem{
 
     public:
     QWidget* buildGenericDesing(QWidget* parent=nullptr); 
+    void refreshDesing();
+    
     ListWidgetMediaItem(const Media&,const QString& ImagePath =":/icons/defaultImage",QListWidget * =nullptr);
     ListWidgetMediaItem(const ListWidgetMediaItem& item);
-    ~ListWidgetMediaItem();
+    ~ListWidgetMediaItem()=default;
+    //lascio alla lista la responsabilità di distruggeere gli elementi grafici
      ListWidgetMediaItem& operator=(const ListWidgetMediaItem& item);
 
     Media& operator*();
@@ -36,7 +39,6 @@ class ListWidgetMediaItem:public QListWidgetItem{
     bool operator==(const ListWidgetMediaItem&);
     bool operator!=(const ListWidgetMediaItem&);
 
-    void refreshDesing();
 };
 
 #endif

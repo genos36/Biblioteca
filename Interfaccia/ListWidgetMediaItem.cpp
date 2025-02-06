@@ -7,8 +7,8 @@
     il parametro 1001 serve a QlistWidgetItem per capire che è un tipo definito da utente*/
     ListWidgetMediaItem::ListWidgetMediaItem(const Media& m,const QString& ImagePath ,QListWidget * parent):
     QListWidgetItem(parent,1001),media(m.clone()),imagePath(ImagePath),
-    titleLabel(new QLabel(media->getTitle())),authorLabel(new QLabel(media->getAuthor())),
-    yearLabel(new QLabel(QString::number(media->getYear()))){}
+    titleLabel(),authorLabel(),
+    yearLabel(){}
 
 
     //oveloading di operator* per l'accesso a media
@@ -55,6 +55,11 @@
         newDesing->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
         QVBoxLayout* layout=new QVBoxLayout(newDesing);
+
+        titleLabel=new QLabel();
+        authorLabel=new QLabel();
+        yearLabel=new QLabel();
+
         titleLabel->setText(media->getTitle());
         authorLabel->setText(media->getAuthor());
         yearLabel->setText(QString::number(media->getYear()));
@@ -79,9 +84,9 @@
 
     void ListWidgetMediaItem::refreshDesing(){
         if(media){    
-            titleLabel->setText(media->getTitle());
-            authorLabel->setText(media->getAuthor());
-            yearLabel->setText(QString::number(media->getYear()));
+            if(titleLabel)titleLabel->setText(media->getTitle());
+            if(authorLabel)authorLabel->setText(media->getAuthor());
+            if(yearLabel)yearLabel->setText(QString::number(media->getYear()));
 
 
         }
@@ -94,18 +99,7 @@
         authorLabel(new QLabel()),yearLabel(new QLabel()){
         }
 
-    ListWidgetMediaItem::~ListWidgetMediaItem(){
-        /*
-        delete titleLabel;
-        delete authorLabel;
-        delete yearLabel;
-        titleLabel=nullptr;
-        authorLabel=nullptr;
-        yearLabel=nullptr;        
-        */
 
-        
-    }
 
     ListWidgetMediaItem& ListWidgetMediaItem::operator=(const ListWidgetMediaItem& item){
 
@@ -113,9 +107,9 @@
             operator=(item);
             media=item.media;
             imagePath=item.imagePath;
-            titleLabel->setText(media->getTitle());
-            authorLabel->setText(media->getAuthor());
-            yearLabel->setText(QString::number(media->getYear()));
+             if(titleLabel)titleLabel->setText(media->getTitle());
+             if(authorLabel)authorLabel->setText(media->getAuthor());
+             if(yearLabel)yearLabel->setText(QString::number(media->getYear()));
 
         }
 
