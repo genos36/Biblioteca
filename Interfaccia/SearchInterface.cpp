@@ -102,7 +102,16 @@ void SearchInterface::removeItem(ListWidgetMediaItem* item){
     }
 
 void SearchInterface::addItem(ListWidgetMediaItem* newItem){
-    if(newItem)genericList->addItem(newItem);
+    //l'aggiunta di widget a una lista non visibile causa glitch grafici
+    if(viewSelector->currentIndex()==viewSelector->indexOf(searchList)){
+        //spostiamo momentaneamente la visibilità sulla lista generica per evitare problemi nel layout
+        viewSelector->setCurrentIndex(0);
+        if(newItem)genericList->addItem(newItem);
+        viewSelector->setCurrentIndex(1);
+    }
+    else{
+        if(newItem)genericList->addItem(newItem);
+    }
 }
 
 
