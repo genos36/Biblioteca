@@ -21,7 +21,7 @@ public:
     QString getFilePath();
     bool isFileSaved();
 
-    static int displayMessageBox();
+    static int displayMessageBox(QWidget* parent=nullptr);
     
     void useMessageBox();
 

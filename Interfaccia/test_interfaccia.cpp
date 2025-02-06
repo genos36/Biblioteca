@@ -12,7 +12,7 @@
 #include "DurationSlider.h"
 #include "SearchInterface.h"
 
-int main(int argc, char *argv[]) {
+void test_2(int argc, char *argv[]) {
     QApplication app(argc, argv);
     BibliotecaMainWindow prova;
     //prova.show();    
@@ -107,7 +107,7 @@ provaFilm.show();
     BibliotecaMainWindow provaMainWindow;
     provaMainWindow.show();
 
-    return app.exec();
+    //return app.exec();
 }
 
 

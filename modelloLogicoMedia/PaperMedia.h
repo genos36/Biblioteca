@@ -12,7 +12,7 @@ class PaperMedia: virtual public Media{
     PaperMedia();
     PaperMedia(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description, 
-            int Pages, QString Editor,
+            int Pages, const QString& Editor,
             int Total, int CurrentAvailability);
 
     int getPages()const;

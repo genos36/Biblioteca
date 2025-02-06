@@ -57,7 +57,7 @@ MyToolBar::MyToolBar(QWidget *parent):
 
 void MyToolBar::onOpen(){
     if(!isSaved){
-        switch(displayMessageBox()){
+        switch(displayMessageBox(parentWidget())){
         case QMessageBox::Save:
         //save was Pressed
             onSave();
@@ -109,14 +109,14 @@ void MyToolBar::onOpen(){
     }
 
 
-    int MyToolBar::displayMessageBox(){
-        QMessageBox msgBox;
+    int MyToolBar::displayMessageBox(QWidget* parent){
+        QMessageBox msgBox(parent);
 
         msgBox.setText("Il documento è stato modificato.");
         msgBox.setInformativeText("Vuoi salvare le modifiche?");
         msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Save);
-
+        
         return msgBox.exec();
 }
 

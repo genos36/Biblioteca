@@ -71,6 +71,9 @@ isSearchOn(false)
 void SearchInterface::startSearch(){
     if(text->text()!=""||typeSelector->currentIndex()!=0){
     isSearchOn=true;
+
+    genericList->clearSelection();
+
     cancelSearchButton->setEnabled(true);
     searchList->setQuery(Query(text->text()));
     searchList->clear();
@@ -87,17 +90,27 @@ void SearchInterface::startSearch(){
 
 void SearchInterface::cancelSearch(){
     isSearchOn=false;
+
+    searchList->clearSelection();
+
     cancelSearchButton->setEnabled(false);
     text->setText("");
     searchList->clear();
     viewSelector->setCurrentIndex(0);
     typeSelector->setCurrentIndex(0);
+    
 }
 
 void SearchInterface::removeItem(ListWidgetMediaItem* item){
         if(genericList&&searchList&&item){
-            if(!isSearchOn)genericList->removeItemAndSync(searchList,item);
-            else searchList->removeItemAndSync(genericList,item);
+            if(!isSearchOn){
+                genericList->removeItemAndSync(searchList,item);
+                genericList->clearSelection();
+            }
+            else {
+                searchList->removeItemAndSync(genericList,item);
+                searchList->clearSelection();
+                }
         }
     }
 

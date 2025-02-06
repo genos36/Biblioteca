@@ -4,7 +4,7 @@ PaperMedia::PaperMedia():pages(0),editor("Default editor"){}
 
 PaperMedia::PaperMedia(const QString& Title,const QString& Author,int Year,
             int Genre, const QString& Description, 
-            int Pages, QString Editor,
+            int Pages, const QString& Editor,
             int Total, int CurrentAvailability):
             Media::Media(Title,Author,Year,Genre,Description,Total,CurrentAvailability),
             pages(Pages>0?Pages:0),editor(Editor){}

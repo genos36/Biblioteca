@@ -43,6 +43,7 @@ class Media{
         void setAuthor(const QString&);
         void setYear(int);
         void setDescription(const QString&);
+        void setGenre(int);
 
         virtual void setTotal(int);
         virtual int addToTotal(int);                   //aumenta le copie totali
@@ -52,7 +53,6 @@ class Media{
         virtual int addToCurrentAvailability(int);     //aumenta le copie disponibili
         virtual int RemoveFromCurrentAvailability(int);//riduce le copie disponibili
 
-        void setGenre(int);
 
 
         //desing pattern

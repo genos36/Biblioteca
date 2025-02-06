@@ -89,6 +89,7 @@
         "qmessagebox": "cpp",
         "qjsonarray": "cpp",
         "qcloseevent": "cpp",
-        "qtextedit": "cpp"
+        "qtextedit": "cpp",
+        "qapplication": "cpp"
     }
 }

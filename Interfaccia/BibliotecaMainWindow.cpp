@@ -235,7 +235,7 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
     void BibliotecaMainWindow::closeEvent(QCloseEvent *event){
 
         if(!toolBar->isFileSaved()){
-            switch(MyToolBar::displayMessageBox()){
+            switch(MyToolBar::displayMessageBox(this)){
                 case QMessageBox::Save:
                 //save was Pressed
                     toolBar->onSave();

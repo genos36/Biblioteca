@@ -43,7 +43,7 @@
         "year": 2022
     },
     {
-        "author": "non lo so",
+        "author": "????????????",
         "currentAv": 3,
         "description": "la nuova edizione della settimana in enigmistica",
         "editor": "boh",
@@ -86,5 +86,33 @@
         "totalAv": 7,
         "type": "musicSingle",
         "year": 2014
+    },
+    {
+        "author": "rfbesf",
+        "currentAv": 0,
+        "description": "brgsbd",
+        "editor": "",
+        "genre": 0,
+        "imagePath": ":/icons/defaultImage",
+        "isbn": "4444444444444",
+        "pages": 0,
+        "title": "bebtre",
+        "totalAv": 0,
+        "type": "book",
+        "year": 0
+    },
+    {
+        "author": "",
+        "currentAv": 0,
+        "description": "bwtrvwtr",
+        "editor": "",
+        "genre": 0,
+        "imagePath": ":/icons/defaultImage",
+        "isbn": "0000000000000",
+        "pages": 0,
+        "title": "ergewrr",
+        "totalAv": 0,
+        "type": "book",
+        "year": 0
     }
 ]
