@@ -35,7 +35,7 @@ void MusicSingle::accept(AbstractMediaVisitor& visitor){
 
 //others
 bool MusicSingle::matchString(const QString& match)const{
-    return Media::matchString(match)||match.toLower()==recordLable.toLower();
+    return Media::matchString(match)||recordLable.startsWith(match,Qt::CaseInsensitive);
 }
 
 MusicSingle* MusicSingle::clone()const{

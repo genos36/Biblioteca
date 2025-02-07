@@ -58,7 +58,7 @@ void Book::accept(AbstractMediaVisitor& visitor){
 
 //others
 bool Book::matchString(const QString& match)const{
-    return PaperMedia::matchString(match) || match.toLower()==isbn.toLower();
+    return PaperMedia::matchString(match) ||isbn.startsWith(match,Qt::CaseInsensitive);
 }
 
 Book* Book::clone()const{

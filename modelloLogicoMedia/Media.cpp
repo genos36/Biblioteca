@@ -101,8 +101,9 @@ int Media::RemoveFromCurrentAvailability(int rem){
 
 //others
 bool Media::matchString(const QString& match)const{
-    return match.toLower()==title.toLower() || match.toLower()==author.toLower() || 
-    match.toLower()==QString::number(year).toLower()||match==getGenreName().toLower();
+    return title.startsWith(match,Qt::CaseInsensitive)||title.endsWith(match,Qt::CaseInsensitive)||title.contains(" "+match+" ",Qt::CaseInsensitive) ||
+    author.startsWith(match,Qt::CaseInsensitive)||author.endsWith(match,Qt::CaseInsensitive)||author.contains(" "+match+" ",Qt::CaseInsensitive) || 
+    QString::number(year)==match||getGenreName().startsWith(match,Qt::CaseInsensitive);
 }
 
 //Desing pattern

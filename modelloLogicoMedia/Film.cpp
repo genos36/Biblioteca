@@ -30,7 +30,7 @@ void Film::accept(AbstractMediaVisitor& visitor){
 }
 
 bool Film::matchString(const QString& match)const{
-    return Media::matchString(match)||match.toLower()==mainActor.toLower();
+    return Media::matchString(match)||mainActor.startsWith(match,Qt::CaseInsensitive)||mainActor.endsWith(match,Qt::CaseInsensitive)||mainActor.contains(" "+match+" ",Qt::CaseInsensitive);
 }
 
 Film* Film::clone()const{
