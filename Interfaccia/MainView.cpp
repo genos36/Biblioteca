@@ -327,7 +327,7 @@ void MainView::cancelAndSwitchToDetailview(){
             destroyEditView();
             if(currentMedia)ChangeDetailview(currentMedia);
 
-            disableButtons();
+            setButtonsForViewMod();
 
         }
 
