@@ -30,13 +30,17 @@ class SearchInterface:public QWidget{
     void removeAllItem();
 
     SearchInterface(QWidget *parent=nullptr);
+    bool IsSearchOn();
+    ListWidgetMediaItem* searchContainsAnItemEqualTo(ListWidgetMediaItem*);
 
     public slots:
     void startSearch();
     void cancelSearch();
     void addItem(ListWidgetMediaItem*);
     void removeItem(ListWidgetMediaItem*);
+    void syncronizeModOnItem(ListWidgetMediaItem* modifiedItem);
 
+    void setSelectedItemOnSearchList(ListWidgetMediaItem*);
 
     signals:
     void onChangeViewPressed();

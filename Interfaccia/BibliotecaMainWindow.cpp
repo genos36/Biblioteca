@@ -53,27 +53,75 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
     //connect relative alle modifiche
     connect(mainView,&MainView::propagateModNotification,this,&BibliotecaMainWindow::propagateModNotification);
     connect(searchInterface,&SearchInterface::propagateModNotification,this,&BibliotecaMainWindow::propagateModNotification);
-
-
-    //connect per il funzionamento dell'interfaccia
+    //connect per il funzionamento dell'interfaccia di crazione dei tipi
     connect(addMedia,&QPushButton::pressed,mainView,[this](){
         mainView->switchToCreateView(strictTypeSelector->currentIndex());
     });
-
-    connect(mainView,&MainView::onDeleteItemPressed,searchInterface,&SearchInterface::removeItem);
-    connect(mainView,&MainView::newItemCreated,searchInterface,&SearchInterface::addItem);
-    connect(mainView,&MainView::onSaveModPressed,searchInterface,&SearchInterface::startSearch);
-    connect(searchInterface,&SearchInterface::itemPressed,mainView,&MainView::ChangeDetailview);
-
     //connect per il salvataggio file
     connect(this,&BibliotecaMainWindow::propagateModNotification,toolBar,&MyToolBar::onModDetected);
     connect(toolBar,&MyToolBar::onSavePressed,this,&BibliotecaMainWindow::saveToJson);
     connect(toolBar,&MyToolBar::onOpenPressed,this,&BibliotecaMainWindow::openFromJson);
+    
+    //conect che gestiscono i seganli principali
+    connect(mainView,&MainView::newItemCreated,this,&BibliotecaMainWindow::handleNewItemAdded);
+    connect(mainView,&MainView::onModSaved,this,&BibliotecaMainWindow::handleItemModified);
+    connect(mainView,&MainView::onDeleteItemPressed,this,&BibliotecaMainWindow::handleItemDeleted);
+    connect(searchInterface,&SearchInterface::itemPressed,this,&BibliotecaMainWindow::HandleItemSeleced);
+/*
 
-    connect(searchInterface,&SearchInterface::onChangeViewPressed,mainView,&MainView::clearViews);
+connect(mainView,&MainView::newItemCreated,searchInterface,&SearchInterface::addItem);
+connect(mainView,&MainView::onModSaved,mainView,&MainView::ChangeDetailview);
+
+    connect(mainView,&MainView::onSaveModPressed,searchInterface,&SearchInterface::startSearch);
+    connect(mainView,&MainView::onModSaved,searchInterface,&SearchInterface::setSelectedItemOnSearchList);
+    connect(mainView,&MainView::onModSaved,searchInterface,&SearchInterface::syncronizeModOnItem);
+    
+    connect(mainView,&MainView::onDeleteItemPressed,searchInterface,&SearchInterface::removeItem);
+    
+    connect(searchInterface,&SearchInterface::itemPressed,mainView,&MainView::ChangeDetailview);
+*/    
+
+connect(searchInterface,&SearchInterface::onChangeViewPressed,mainView,&MainView::clearViews);
+  
     //shortcut salvataggio dati
     setUpShortcuts();
 
+}
+
+void BibliotecaMainWindow::handleNewItemAdded(ListWidgetMediaItem* newItem){
+    searchInterface->addItem(newItem);
+
+}
+
+void BibliotecaMainWindow::handleItemDeleted(ListWidgetMediaItem* itemToDelete){
+    searchInterface->removeItem(itemToDelete);
+    mainView->clearViews();
+}
+
+void BibliotecaMainWindow::HandleItemSeleced(ListWidgetMediaItem* itemPressed){
+    mainView->ChangeDetailview(itemPressed);
+}
+
+void BibliotecaMainWindow::handleItemModified(ListWidgetMediaItem* modifiedItem){
+        ListWidgetMediaItem temp(*modifiedItem);
+    if(searchInterface->IsSearchOn()){
+        searchInterface->syncronizeModOnItem(modifiedItem);
+        searchInterface->startSearch();
+        ListWidgetMediaItem* item=searchInterface->searchContainsAnItemEqualTo(&temp);
+        //searchInterface->setSelectedItemOnSearchList(modifiedItem);
+        if(item){
+
+            mainView->ChangeDetailview(item);
+            mainView->setButtonsForViewMod();
+        }
+        else{
+            mainView->clearViews();
+        }
+        
+    }
+    else{
+        mainView->ChangeDetailview(modifiedItem);
+    }
 }
 
 QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
@@ -87,6 +135,36 @@ QComboBox* BibliotecaMainWindow::buildStrictTypeSelector(){
 
     return newTypeselector;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     void BibliotecaMainWindow::saveToJson(){

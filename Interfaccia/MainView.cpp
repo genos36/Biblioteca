@@ -293,7 +293,7 @@ if(currentMedia){
             if(editView){
             qDebug()<<"inizio salvataggio";     
                 editView->applyMod(currentMedia);
-                
+                emit onModSaved(currentMedia);
             }
         //viewSelector->removeWidget(editView);
         ChangeDetailview(currentMedia);

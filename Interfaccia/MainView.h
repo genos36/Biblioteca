@@ -73,6 +73,8 @@ class MainView:public QWidget{
 
     void onSaveModPressed();
 
+    void onModSaved(ListWidgetMediaItem*);
+
 
 
 };

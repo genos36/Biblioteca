@@ -27,11 +27,18 @@ class BibliotecaMainWindow:public QMainWindow{
 
     public:
     BibliotecaMainWindow(QWidget *parent =nullptr);
+
+    
+    
     protected:
-
+    
     void closeEvent(QCloseEvent *event) override;
-
+    
     public slots:
+    void handleNewItemAdded(ListWidgetMediaItem*);
+    void handleItemModified(ListWidgetMediaItem*);
+    void handleItemDeleted(ListWidgetMediaItem*);
+    void HandleItemSeleced(ListWidgetMediaItem*);
 
     void saveToJson();
     void openFromJson();

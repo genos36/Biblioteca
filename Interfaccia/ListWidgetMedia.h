@@ -39,6 +39,9 @@ class ListWidgetMedia:public QListWidget{
     void removeItem(ListWidgetMediaItem* item);
     void removeItemAndSync( ListWidgetMedia* l, ListWidgetMediaItem* item);
     void addItemAndSync( ListWidgetMedia* l, ListWidgetMediaItem* item);
+    void syncronizeModOnItem(ListWidgetMediaItem* ,ListWidgetMedia*);
+
+    ListWidgetMediaItem* containsAnItemEqualTo(ListWidgetMediaItem* );
 
     public slots:
 

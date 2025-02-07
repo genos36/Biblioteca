@@ -64,6 +64,7 @@ isSearchOn(false)
     connect(genericList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
     connect(searchList,&ListWidgetMedia::mediaItemPressed,this,&SearchInterface::itemPressed);
      
+    connect(typeSelector,&QComboBox::currentIndexChanged,this,&SearchInterface::onChangeViewPressed);
     connect(text,&QLineEdit::textChanged,this,&SearchInterface::onChangeViewPressed);
     connect(cancelSearchButton,&QPushButton::pressed,this,&SearchInterface::onChangeViewPressed);
 
@@ -148,4 +149,44 @@ void SearchInterface::addItem(ListWidgetMediaItem* newItem){
     void SearchInterface::removeAllItem(){
         genericList->clear();
         searchList->clear();
+    }
+    
+//serve a sincronizzare l'imagePath dell'item, le modifiche a media avvengono direttamente essendo media SmartPointer condiviso
+    void SearchInterface::syncronizeModOnItem(ListWidgetMediaItem* modifiedItem){
+        qDebug()<<"siamo dentro la funzione che dovrebbe fixare l'imagepath"; 
+
+        if(isSearchOn){
+            qDebug()<<"siamo dentro l'if della funzione che dovrebbe fixare l'imagepath"; 
+
+            searchList->syncronizeModOnItem(modifiedItem,genericList);
+        }
+    }
+
+    void SearchInterface::setSelectedItemOnSearchList(ListWidgetMediaItem* item){
+        qDebug()<<"siamo dentro la funzione che dovrebbe manteenere coerenti mainview e search";
+
+        if(isSearchOn){
+        qDebug()<<"siamo dentro il primo if della funzione che dovrebbe manteenere coerenti mainview e search";
+            for(int i=0;i<searchList->count();++i){
+                qDebug()<<"siamo dentro il for della della funzione che dovrebbe manteenere coerenti mainview e search";
+                if(*item==*(searchList->item(i))){
+                    qDebug()<<"stiamo provando a mantenere la coerenza";
+                    searchList->setCurrentItem( searchList->item(i),QItemSelectionModel::SelectCurrent);
+                    emit itemPressed(searchList->item(i));
+                }
+                else{
+                    qDebug()<<"non è l'item giusto";
+
+                }
+            }
+        }
+
+    }
+
+    bool SearchInterface::IsSearchOn(){
+        return isSearchOn;
+    }
+
+    ListWidgetMediaItem* SearchInterface::searchContainsAnItemEqualTo(ListWidgetMediaItem* targetItem){
+        return searchList->containsAnItemEqualTo(targetItem);
     }

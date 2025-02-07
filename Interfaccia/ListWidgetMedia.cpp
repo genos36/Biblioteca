@@ -116,3 +116,39 @@ void ListWidgetMedia::onItemPressed(QListWidgetItem *item){
         }
         QListWidget::clear();
     }
+
+    void ListWidgetMedia::syncronizeModOnItem(ListWidgetMediaItem* modifiedItem,ListWidgetMedia* l){
+        qDebug()<<"siamo dentro la funzione che dovrebbe fixare l'imagepath"; 
+        if(modifiedItem &&   l ){
+            qDebug()<<"siamo il primo if  della funzione che dovrebbe fixare l'imagepath"; 
+
+            for(int i=0;i<l->count();++i){
+                qDebug()<<"siamo dentro il for della funzione che dovrebbe fixare l'imagepath"; 
+
+                if(*modifiedItem==*(l->item(i))){
+                    qDebug()<<"stiamo fixando l'imagepath l'imagepath"; 
+
+                    l->item(i)->setImagePath(modifiedItem->getImagePath());
+                }
+
+            }
+        }
+    }
+
+
+    ListWidgetMediaItem* ListWidgetMedia::containsAnItemEqualTo(ListWidgetMediaItem* targetItem){
+        
+        qDebug()<<"siamo dentro la funzione che cerca un item, dentro una lista, uguale al target";
+        for(int i=0;i<count();++i){
+            qDebug()<<"siamo dentro al for della funzione che cerca un item, dentro una lista, uguale al target";
+
+            if(*(item(i))==*targetItem){
+                qDebug()<<"ha trovato un match, evviva";
+
+                return item(i);
+            }
+        }
+        qDebug()<<"Nessun match trovato";
+
+        return nullptr;
+    }

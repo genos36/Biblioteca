@@ -7,8 +7,8 @@
     il parametro 1001 serve a QlistWidgetItem per capire che è un tipo definito da utente*/
     ListWidgetMediaItem::ListWidgetMediaItem(const Media& m,const QString& ImagePath ,QListWidget * parent):
     QListWidgetItem(parent,1001),media(m.clone()),imagePath(ImagePath),
-    titleLabel(),authorLabel(),
-    yearLabel(){}
+    titleLabel(nullptr),authorLabel(nullptr),
+    yearLabel(nullptr){}
 
 
     //oveloading di operator* per l'accesso a media
@@ -114,6 +114,4 @@
         }
 
         return *this;
-
-
     }
