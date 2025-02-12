@@ -198,7 +198,12 @@ EditView::EditView(QWidget* parent,const QString& ImagePath):
     void EditView::setImagePath(const QString& newImagePath){
         imagePath=newImagePath;
         QPixmap pixmap(imagePath);
-        image->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        if(!pixmap.isNull()){
+            image->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        }
+        else{
+            image->setPixmap(QPixmap(":/icons/defaultImage").scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        }
     }
 
     void EditView::addWidget(QWidget* newWidget){

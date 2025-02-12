@@ -130,7 +130,7 @@ void MainView::destroyDetailView(){
 
 
 void MainView::setEditView(EditView* newEditView){
-    //destroyEditView();
+    destroyEditView();
     editView=newEditView;
 
     if(editView){
@@ -277,7 +277,7 @@ if(currentMedia){
                 createButton->setEnabled(false);
                 }
     qDebug()<<"edit view creata con successo";
-    setEditView(editView);
+    //setEditView(editView);
     qDebug()<<"edit view montata con successo";
     setButtonsForCreationMod();
     qDebug()<<"pulsantiera impostata con successo";

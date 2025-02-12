@@ -76,7 +76,7 @@
     QTextEdit* descriptionLabel=new QTextEdit();
     descriptionLabel->setText(media.getDescription());
     descriptionLabel->setReadOnly(true);  // Disabilita la modifica del testo
-    descriptionLabel->setWordWrapMode(QTextOption::WrapAnywhere);  // Abilita il ritorno a capo del testo
+    descriptionLabel->setWordWrapMode(QTextOption::WordWrap);  // Abilita il ritorno a capo del testo
     descriptionLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 

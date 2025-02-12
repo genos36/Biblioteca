@@ -9,7 +9,7 @@ QComboBox* SearchInterface::buildTypeSelector(){
     box->addItem("All");
     box->addItem(QIcon(":/icons/book.png"),"Libri");
     box->addItem(QIcon(":/icons/magazine.png"),"Riviste");
-    box->addItem(QIcon(":/icons/CD.png"),"CD");
+    box->addItem(QIcon(":/icons/CD.png"),"Singolo Musicale");
     box->addItem(QIcon(":/icons/film.png"),"Film");
 
 
