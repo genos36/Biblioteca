@@ -270,6 +270,12 @@ if(currentMedia){
                 saveModButton->setEnabled(false);
                 createButton->setEnabled(false);
                 }
+<<<<<<< HEAD
+=======
+    qDebug()<<"edit view creata con successo";
+    //setEditView(editView);
+    qDebug()<<"edit view montata con successo";
+>>>>>>> 6baf9570c0c2cf788d7e445bc47ff1b9fe031793
     setButtonsForCreationMod();
     showEditView();
     }
