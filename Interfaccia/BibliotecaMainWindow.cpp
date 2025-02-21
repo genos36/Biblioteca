@@ -67,19 +67,7 @@ BibliotecaMainWindow::BibliotecaMainWindow(QWidget *parent)
     connect(mainView,&MainView::onModSaved,this,&BibliotecaMainWindow::handleItemModified);
     connect(mainView,&MainView::onDeleteItemPressed,this,&BibliotecaMainWindow::handleItemDeleted);
     connect(searchInterface,&SearchInterface::itemPressed,this,&BibliotecaMainWindow::HandleItemSeleced);
-/*
-
-connect(mainView,&MainView::newItemCreated,searchInterface,&SearchInterface::addItem);
-connect(mainView,&MainView::onModSaved,mainView,&MainView::ChangeDetailview);
-
-    connect(mainView,&MainView::onSaveModPressed,searchInterface,&SearchInterface::startSearch);
-    connect(mainView,&MainView::onModSaved,searchInterface,&SearchInterface::setSelectedItemOnSearchList);
-    connect(mainView,&MainView::onModSaved,searchInterface,&SearchInterface::syncronizeModOnItem);
-    
-    connect(mainView,&MainView::onDeleteItemPressed,searchInterface,&SearchInterface::removeItem);
-    
-    connect(searchInterface,&SearchInterface::itemPressed,mainView,&MainView::ChangeDetailview);
-*/    
+   
 
 connect(searchInterface,&SearchInterface::onChangeViewPressed,mainView,&MainView::clearViews);
   
@@ -108,7 +96,6 @@ void BibliotecaMainWindow::handleItemModified(ListWidgetMediaItem* modifiedItem)
         searchInterface->syncronizeModOnItem(modifiedItem);
         searchInterface->startSearch();
         ListWidgetMediaItem* item=searchInterface->searchContainsAnItemEqualTo(&temp);
-        //searchInterface->setSelectedItemOnSearchList(modifiedItem);
         if(item){
 
             mainView->ChangeDetailview(item);

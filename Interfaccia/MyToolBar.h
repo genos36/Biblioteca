@@ -35,7 +35,6 @@ public slots:
 signals:
     void onOpenPressed();
     void onSavePressed();
-    //void onSaveAsPressed();
 };
 
 #endif

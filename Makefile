@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Progetto1.0.0
-DISTDIR = /home/pao/Progetto/.tmp/Progetto1.0.0
+DISTDIR = /home/pao/consegnaProgetto/Progetto/.tmp/Progetto1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath-link,/usr/lib/x86_64-linux-gnu
 LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/libQt6Gui.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Core.so -lpthread -lGLX -lOpenGL   
@@ -70,7 +70,6 @@ SOURCES       = main.cpp \
 		Interfaccia/PaperMediaEditView.cpp \
 		Interfaccia/SearchInterface.cpp \
 		Interfaccia/SearchListWidgetMedia.cpp \
-		Interfaccia/test_interfaccia.cpp \
 		Interfaccia/VideoEditView.cpp \
 		modelloLogicoMedia/Audio.cpp \
 		modelloLogicoMedia/Book.cpp \
@@ -82,11 +81,9 @@ SOURCES       = main.cpp \
 		modelloLogicoMedia/Multimedia.cpp \
 		modelloLogicoMedia/MusicSingle.cpp \
 		modelloLogicoMedia/PaperMedia.cpp \
-		modelloLogicoMedia/test.cpp \
 		modelloLogicoMedia/Video.cpp \
 		Visitors/DetailVisitor.cpp \
 		Visitors/EditVisitor.cpp \
-		Visitors/FilterVisitor.cpp \
 		Visitors/JsonVisitor.cpp \
 		Visitors/Query.cpp \
 		Visitors/WidgetVisitor.cpp qrc_resources.cpp \
@@ -125,7 +122,6 @@ OBJECTS       = main.o \
 		PaperMediaEditView.o \
 		SearchInterface.o \
 		SearchListWidgetMedia.o \
-		test_interfaccia.o \
 		VideoEditView.o \
 		Audio.o \
 		Book.o \
@@ -137,11 +133,9 @@ OBJECTS       = main.o \
 		Multimedia.o \
 		MusicSingle.o \
 		PaperMedia.o \
-		test.o \
 		Video.o \
 		DetailVisitor.o \
 		EditVisitor.o \
-		FilterVisitor.o \
 		JsonVisitor.o \
 		Query.o \
 		WidgetVisitor.o \
@@ -261,7 +255,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		Visitors/AbstractMediaVisitor.h \
 		Visitors/DetailVisitor.h \
 		Visitors/EditVisitor.h \
-		Visitors/FilterVisitor.h \
 		Visitors/JsonVisitor.h \
 		Visitors/Query.h \
 		Visitors/WidgetVisitor.h \
@@ -286,7 +279,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		Interfaccia/PaperMediaEditView.cpp \
 		Interfaccia/SearchInterface.cpp \
 		Interfaccia/SearchListWidgetMedia.cpp \
-		Interfaccia/test_interfaccia.cpp \
 		Interfaccia/VideoEditView.cpp \
 		modelloLogicoMedia/Audio.cpp \
 		modelloLogicoMedia/Book.cpp \
@@ -298,11 +290,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		modelloLogicoMedia/Multimedia.cpp \
 		modelloLogicoMedia/MusicSingle.cpp \
 		modelloLogicoMedia/PaperMedia.cpp \
-		modelloLogicoMedia/test.cpp \
 		modelloLogicoMedia/Video.cpp \
 		Visitors/DetailVisitor.cpp \
 		Visitors/EditVisitor.cpp \
-		Visitors/FilterVisitor.cpp \
 		Visitors/JsonVisitor.cpp \
 		Visitors/Query.cpp \
 		Visitors/WidgetVisitor.cpp
@@ -474,8 +464,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents Interfaccia/AudioEditView.h Interfaccia/BibliotecaMainWindow.h Interfaccia/BookEditView.h Interfaccia/DetailView.h Interfaccia/DurationSlider.h Interfaccia/EditView.h Interfaccia/FilmEditView.h Interfaccia/ListWidgetMedia.h Interfaccia/ListWidgetMediaItem.h Interfaccia/MagazineEditView.h Interfaccia/MainView.h Interfaccia/MultimediaEditView.h Interfaccia/MusicSingleEditView.h Interfaccia/MyToolBar.h Interfaccia/PaperMediaEditView.h Interfaccia/SearchInterface.h Interfaccia/SearchListWidgetMedia.h Interfaccia/VideoEditView.h modelloLogicoMedia/Audio.h modelloLogicoMedia/Book.h modelloLogicoMedia/Duration.h modelloLogicoMedia/Film.h modelloLogicoMedia/ISBN.h modelloLogicoMedia/Magazine.h modelloLogicoMedia/Media.h modelloLogicoMedia/Multimedia.h modelloLogicoMedia/MusicSingle.h modelloLogicoMedia/PaperMedia.h modelloLogicoMedia/Video.h Observers/AbstractMediaObserver.h Visitors/AbstractMediaVisitor.h Visitors/DetailVisitor.h Visitors/EditVisitor.h Visitors/FilterVisitor.h Visitors/JsonVisitor.h Visitors/Query.h Visitors/WidgetVisitor.h modelloLogicoMedia/Genre/AudioGenre.h modelloLogicoMedia/Genre/BookGenre.h modelloLogicoMedia/Genre/MagazineGenre.h modelloLogicoMedia/Genre/VideoGenre.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DetailView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MainView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/test_interfaccia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/test.cpp modelloLogicoMedia/Video.cpp Visitors/DetailVisitor.cpp Visitors/EditVisitor.cpp Visitors/FilterVisitor.cpp Visitors/JsonVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Interfaccia/AudioEditView.h Interfaccia/BibliotecaMainWindow.h Interfaccia/BookEditView.h Interfaccia/DetailView.h Interfaccia/DurationSlider.h Interfaccia/EditView.h Interfaccia/FilmEditView.h Interfaccia/ListWidgetMedia.h Interfaccia/ListWidgetMediaItem.h Interfaccia/MagazineEditView.h Interfaccia/MainView.h Interfaccia/MultimediaEditView.h Interfaccia/MusicSingleEditView.h Interfaccia/MyToolBar.h Interfaccia/PaperMediaEditView.h Interfaccia/SearchInterface.h Interfaccia/SearchListWidgetMedia.h Interfaccia/VideoEditView.h modelloLogicoMedia/Audio.h modelloLogicoMedia/Book.h modelloLogicoMedia/Duration.h modelloLogicoMedia/Film.h modelloLogicoMedia/ISBN.h modelloLogicoMedia/Magazine.h modelloLogicoMedia/Media.h modelloLogicoMedia/Multimedia.h modelloLogicoMedia/MusicSingle.h modelloLogicoMedia/PaperMedia.h modelloLogicoMedia/Video.h Observers/AbstractMediaObserver.h Visitors/AbstractMediaVisitor.h Visitors/DetailVisitor.h Visitors/EditVisitor.h Visitors/JsonVisitor.h Visitors/Query.h Visitors/WidgetVisitor.h modelloLogicoMedia/Genre/AudioGenre.h modelloLogicoMedia/Genre/BookGenre.h modelloLogicoMedia/Genre/MagazineGenre.h modelloLogicoMedia/Genre/VideoGenre.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp Interfaccia/AudioEditView.cpp Interfaccia/BibliotecaMainWindow.cpp Interfaccia/BookEditView.cpp Interfaccia/DetailView.cpp Interfaccia/DurationSlider.cpp Interfaccia/EditView.cpp Interfaccia/FilmEditView.cpp Interfaccia/ListWidgetMedia.cpp Interfaccia/ListWidgetMediaItem.cpp Interfaccia/MagazineEditView.cpp Interfaccia/MainView.cpp Interfaccia/MultimediaEditView.cpp Interfaccia/MusicSingleEditView.cpp Interfaccia/MyToolBar.cpp Interfaccia/PaperMediaEditView.cpp Interfaccia/SearchInterface.cpp Interfaccia/SearchListWidgetMedia.cpp Interfaccia/VideoEditView.cpp modelloLogicoMedia/Audio.cpp modelloLogicoMedia/Book.cpp modelloLogicoMedia/Duration.cpp modelloLogicoMedia/Film.cpp modelloLogicoMedia/ISBN.cpp modelloLogicoMedia/Magazine.cpp modelloLogicoMedia/Media.cpp modelloLogicoMedia/Multimedia.cpp modelloLogicoMedia/MusicSingle.cpp modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/Video.cpp Visitors/DetailVisitor.cpp Visitors/EditVisitor.cpp Visitors/JsonVisitor.cpp Visitors/Query.cpp Visitors/WidgetVisitor.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -531,7 +521,7 @@ moc_AudioEditView.cpp: Interfaccia/AudioEditView.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/AudioEditView.h -o moc_AudioEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/AudioEditView.h -o moc_AudioEditView.cpp
 
 moc_BibliotecaMainWindow.cpp: Interfaccia/BibliotecaMainWindow.h \
 		Interfaccia/MyToolBar.h \
@@ -559,7 +549,7 @@ moc_BibliotecaMainWindow.cpp: Interfaccia/BibliotecaMainWindow.h \
 		Interfaccia/MainView.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BibliotecaMainWindow.h -o moc_BibliotecaMainWindow.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BibliotecaMainWindow.h -o moc_BibliotecaMainWindow.cpp
 
 moc_BookEditView.cpp: Interfaccia/BookEditView.h \
 		Interfaccia/PaperMediaEditView.h \
@@ -572,25 +562,25 @@ moc_BookEditView.cpp: Interfaccia/BookEditView.h \
 		modelloLogicoMedia/Genre/BookGenre.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BookEditView.h -o moc_BookEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/BookEditView.h -o moc_BookEditView.cpp
 
 moc_DetailView.cpp: Interfaccia/DetailView.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/DetailView.h -o moc_DetailView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/DetailView.h -o moc_DetailView.cpp
 
 moc_DurationSlider.cpp: Interfaccia/DurationSlider.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/DurationSlider.h -o moc_DurationSlider.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/DurationSlider.h -o moc_DurationSlider.cpp
 
 moc_EditView.cpp: Interfaccia/EditView.h \
 		Interfaccia/ListWidgetMediaItem.h \
 		modelloLogicoMedia/Media.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/EditView.h -o moc_EditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/EditView.h -o moc_EditView.cpp
 
 moc_FilmEditView.cpp: Interfaccia/FilmEditView.h \
 		Interfaccia/VideoEditView.h \
@@ -602,12 +592,12 @@ moc_FilmEditView.cpp: Interfaccia/FilmEditView.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/FilmEditView.h -o moc_FilmEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/FilmEditView.h -o moc_FilmEditView.cpp
 
 moc_ListWidgetMedia.cpp: Interfaccia/ListWidgetMedia.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/ListWidgetMedia.h -o moc_ListWidgetMedia.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/ListWidgetMedia.h -o moc_ListWidgetMedia.cpp
 
 moc_MagazineEditView.cpp: Interfaccia/MagazineEditView.h \
 		Interfaccia/PaperMediaEditView.h \
@@ -619,12 +609,12 @@ moc_MagazineEditView.cpp: Interfaccia/MagazineEditView.h \
 		modelloLogicoMedia/Genre/MagazineGenre.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MagazineEditView.h -o moc_MagazineEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MagazineEditView.h -o moc_MagazineEditView.cpp
 
 moc_MainView.cpp: Interfaccia/MainView.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MainView.h -o moc_MainView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MainView.h -o moc_MainView.cpp
 
 moc_MultimediaEditView.cpp: Interfaccia/MultimediaEditView.h \
 		Interfaccia/EditView.h \
@@ -634,7 +624,7 @@ moc_MultimediaEditView.cpp: Interfaccia/MultimediaEditView.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MultimediaEditView.h -o moc_MultimediaEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MultimediaEditView.h -o moc_MultimediaEditView.cpp
 
 moc_MusicSingleEditView.cpp: Interfaccia/MusicSingleEditView.h \
 		Interfaccia/AudioEditView.h \
@@ -646,13 +636,13 @@ moc_MusicSingleEditView.cpp: Interfaccia/MusicSingleEditView.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MusicSingleEditView.h -o moc_MusicSingleEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MusicSingleEditView.h -o moc_MusicSingleEditView.cpp
 
 moc_MyToolBar.cpp: Interfaccia/MyToolBar.h \
 		Observers/AbstractMediaObserver.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MyToolBar.h -o moc_MyToolBar.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/MyToolBar.h -o moc_MyToolBar.cpp
 
 moc_PaperMediaEditView.cpp: Interfaccia/PaperMediaEditView.h \
 		Interfaccia/EditView.h \
@@ -660,7 +650,7 @@ moc_PaperMediaEditView.cpp: Interfaccia/PaperMediaEditView.h \
 		modelloLogicoMedia/Media.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/PaperMediaEditView.h -o moc_PaperMediaEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/PaperMediaEditView.h -o moc_PaperMediaEditView.cpp
 
 moc_SearchInterface.cpp: Interfaccia/SearchInterface.h \
 		Interfaccia/SearchListWidgetMedia.h \
@@ -684,7 +674,7 @@ moc_SearchInterface.cpp: Interfaccia/SearchInterface.h \
 		modelloLogicoMedia/Genre/VideoGenre.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchInterface.h -o moc_SearchInterface.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchInterface.h -o moc_SearchInterface.cpp
 
 moc_SearchListWidgetMedia.cpp: Interfaccia/SearchListWidgetMedia.h \
 		Interfaccia/ListWidgetMedia.h \
@@ -707,7 +697,7 @@ moc_SearchListWidgetMedia.cpp: Interfaccia/SearchListWidgetMedia.h \
 		modelloLogicoMedia/Genre/VideoGenre.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchListWidgetMedia.h -o moc_SearchListWidgetMedia.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/SearchListWidgetMedia.h -o moc_SearchListWidgetMedia.cpp
 
 moc_VideoEditView.cpp: Interfaccia/VideoEditView.h \
 		Interfaccia/MultimediaEditView.h \
@@ -718,7 +708,7 @@ moc_VideoEditView.cpp: Interfaccia/VideoEditView.h \
 		modelloLogicoMedia/Duration.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/Progetto -I/home/pao/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/VideoEditView.h -o moc_VideoEditView.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/pao/consegnaProgetto/Progetto/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/home/pao/consegnaProgetto/Progetto -I/home/pao/consegnaProgetto/Progetto -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Interfaccia/VideoEditView.h -o moc_VideoEditView.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -977,43 +967,6 @@ SearchListWidgetMedia.o: Interfaccia/SearchListWidgetMedia.cpp Interfaccia/Searc
 		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchListWidgetMedia.o Interfaccia/SearchListWidgetMedia.cpp
 
-test_interfaccia.o: Interfaccia/test_interfaccia.cpp Interfaccia/BibliotecaMainWindow.h \
-		Interfaccia/MyToolBar.h \
-		Observers/AbstractMediaObserver.h \
-		Interfaccia/SearchInterface.h \
-		Interfaccia/SearchListWidgetMedia.h \
-		Interfaccia/ListWidgetMedia.h \
-		Interfaccia/ListWidgetMediaItem.h \
-		modelloLogicoMedia/Media.h \
-		Visitors/Query.h \
-		modelloLogicoMedia/Book.h \
-		modelloLogicoMedia/PaperMedia.h \
-		modelloLogicoMedia/ISBN.h \
-		modelloLogicoMedia/Genre/BookGenre.h \
-		modelloLogicoMedia/Magazine.h \
-		modelloLogicoMedia/Genre/MagazineGenre.h \
-		modelloLogicoMedia/MusicSingle.h \
-		modelloLogicoMedia/Audio.h \
-		modelloLogicoMedia/Multimedia.h \
-		modelloLogicoMedia/Duration.h \
-		modelloLogicoMedia/Genre/AudioGenre.h \
-		modelloLogicoMedia/Film.h \
-		modelloLogicoMedia/Video.h \
-		modelloLogicoMedia/Genre/VideoGenre.h \
-		Interfaccia/MainView.h \
-		Interfaccia/BookEditView.h \
-		Interfaccia/PaperMediaEditView.h \
-		Interfaccia/EditView.h \
-		Interfaccia/MagazineEditView.h \
-		Interfaccia/MusicSingleEditView.h \
-		Interfaccia/AudioEditView.h \
-		Interfaccia/MultimediaEditView.h \
-		Interfaccia/DurationSlider.h \
-		Interfaccia/FilmEditView.h \
-		Interfaccia/VideoEditView.h \
-		Interfaccia/DetailView.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test_interfaccia.o Interfaccia/test_interfaccia.cpp
-
 VideoEditView.o: Interfaccia/VideoEditView.cpp Interfaccia/VideoEditView.h \
 		Interfaccia/MultimediaEditView.h \
 		Interfaccia/EditView.h \
@@ -1085,26 +1038,6 @@ PaperMedia.o: modelloLogicoMedia/PaperMedia.cpp modelloLogicoMedia/PaperMedia.h 
 		modelloLogicoMedia/Media.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PaperMedia.o modelloLogicoMedia/PaperMedia.cpp
 
-test.o: modelloLogicoMedia/test.cpp modelloLogicoMedia/Book.h \
-		modelloLogicoMedia/PaperMedia.h \
-		modelloLogicoMedia/Media.h \
-		modelloLogicoMedia/ISBN.h \
-		modelloLogicoMedia/Genre/BookGenre.h \
-		modelloLogicoMedia/Magazine.h \
-		modelloLogicoMedia/Genre/MagazineGenre.h \
-		modelloLogicoMedia/MusicSingle.h \
-		modelloLogicoMedia/Audio.h \
-		modelloLogicoMedia/Multimedia.h \
-		modelloLogicoMedia/Duration.h \
-		modelloLogicoMedia/Genre/AudioGenre.h \
-		modelloLogicoMedia/Film.h \
-		modelloLogicoMedia/Video.h \
-		modelloLogicoMedia/Genre/VideoGenre.h \
-		Visitors/Query.h \
-		Visitors/FilterVisitor.h \
-		Visitors/AbstractMediaVisitor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test.o modelloLogicoMedia/test.cpp
-
 Video.o: modelloLogicoMedia/Video.cpp modelloLogicoMedia/Video.h \
 		modelloLogicoMedia/Multimedia.h \
 		modelloLogicoMedia/Media.h \
@@ -1163,25 +1096,6 @@ EditVisitor.o: Visitors/EditVisitor.cpp Visitors/EditVisitor.h \
 		modelloLogicoMedia/Video.h \
 		modelloLogicoMedia/Genre/VideoGenre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EditVisitor.o Visitors/EditVisitor.cpp
-
-FilterVisitor.o: Visitors/FilterVisitor.cpp modelloLogicoMedia/Book.h \
-		modelloLogicoMedia/PaperMedia.h \
-		modelloLogicoMedia/Media.h \
-		modelloLogicoMedia/ISBN.h \
-		modelloLogicoMedia/Genre/BookGenre.h \
-		modelloLogicoMedia/Magazine.h \
-		modelloLogicoMedia/Genre/MagazineGenre.h \
-		modelloLogicoMedia/MusicSingle.h \
-		modelloLogicoMedia/Audio.h \
-		modelloLogicoMedia/Multimedia.h \
-		modelloLogicoMedia/Duration.h \
-		modelloLogicoMedia/Genre/AudioGenre.h \
-		modelloLogicoMedia/Film.h \
-		modelloLogicoMedia/Video.h \
-		modelloLogicoMedia/Genre/VideoGenre.h \
-		Visitors/FilterVisitor.h \
-		Visitors/AbstractMediaVisitor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FilterVisitor.o Visitors/FilterVisitor.cpp
 
 JsonVisitor.o: Visitors/JsonVisitor.cpp Visitors/JsonVisitor.h \
 		Visitors/AbstractMediaVisitor.h \

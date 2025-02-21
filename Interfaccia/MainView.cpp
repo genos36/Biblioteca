@@ -20,7 +20,6 @@ currentMedia(nullptr),editButton(new QPushButton("Modifica")),
 cancelButton(new QPushButton("Annulla")),saveModButton(new QPushButton("Conferma")),
 createButton(new QPushButton("Crea")),deleteButton(new QPushButton("Elimina")),
 buttonWrapper(new QStackedWidget()){
-    //QVBoxLayout* mainLayout=new QVBoxLayout(this);
 
     layout->addWidget(viewSelector);
     editButton->setEnabled(false);
@@ -49,11 +48,7 @@ buttonWrapper(new QStackedWidget()){
     viewSelector->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     
-/*
-    editButton->setFixedHeight(cancelButton->height());
-    editButton->setFixedHeight(saveModButton->height());
-    editButton->setFixedHeight(createButton->height());
-*/
+
     buttonWrapper->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Fixed);
 
 deleteButton->setStyleSheet(
@@ -71,11 +66,11 @@ deleteButton->setStyleSheet(
     connect(saveModButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
     connect(deleteButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
     connect(createButton,&QPushButton::pressed,this,&MainView::propagateModNotification);
-    //connect(detailView,&DetailView::propagateModNotification,this,&MainView::propagateModNotification);
+
 
     connect(saveModButton,&QPushButton::pressed,this,&MainView::saveAndSwitchToDetailview);
     connect(saveModButton,&QPushButton::pressed,this,&MainView::onSaveModPressed);
-    //connect(createButton,&QPushButton::pressed,this,&MainView::createAndSwitchToDetailview);
+
     connect(editButton,&QPushButton::pressed,this,&MainView::switchToModView);
     connect(cancelButton,&QPushButton::pressed,this,&MainView::cancelAndSwitchToDetailview);
     connect(createButton,&QPushButton::pressed,this,&MainView::createAndSwitchToDetailview);
@@ -130,7 +125,7 @@ void MainView::destroyDetailView(){
 
 
 void MainView::setEditView(EditView* newEditView){
-    //destroyEditView();
+    destroyEditView();
     editView=newEditView;
 
     if(editView){
@@ -169,9 +164,8 @@ void MainView::ChangeDetailview(ListWidgetMediaItem* newItem){
         setDetailView(buildDetailView(newItem));
         showDetailView();
         setButtonsForViewMod();
-        //if(currentMedia!=newItem)currentMedia=newItem;
+
         currentMedia=newItem;
-        qDebug()<<viewSelector->count();
 
     }
 
@@ -276,14 +270,8 @@ if(currentMedia){
                 saveModButton->setEnabled(false);
                 createButton->setEnabled(false);
                 }
-    qDebug()<<"edit view creata con successo";
-    setEditView(editView);
-    qDebug()<<"edit view montata con successo";
     setButtonsForCreationMod();
-    qDebug()<<"pulsantiera impostata con successo";
     showEditView();
-        qDebug()<<"stiamo mostrando il widget";
-
     }
 
     void MainView::saveAndSwitchToDetailview(){
@@ -291,19 +279,11 @@ if(currentMedia){
         if(currentMedia){
         
             if(editView){
-            qDebug()<<"inizio salvataggio";     
                 editView->applyMod(currentMedia);
                 emit onModSaved(currentMedia);
             }
-        //viewSelector->removeWidget(editView);
         ChangeDetailview(currentMedia);
-        //viewSelector->insertWidget(viewSelector->count(),editView);
-/*
-        
-        setButtonsForViewMod();
-        showDetailView();
-        
-*/      
+    
         } 
 
     }

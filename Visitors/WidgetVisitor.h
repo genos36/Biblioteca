@@ -13,11 +13,11 @@ class WidgetVisitor:public AbstractMediaVisitor{
     private:
     QWidget* widget;
     protected:
-    //WidgetVisitor(QWidget* =nullptr);
+
 
     WidgetVisitor();
     
-    //~WidgetVisitor();
+
     WidgetVisitor(const WidgetVisitor&)=delete;
     WidgetVisitor& operator=(const WidgetVisitor&)=delete;
     

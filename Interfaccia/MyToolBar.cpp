@@ -24,12 +24,10 @@ MyToolBar::MyToolBar(QWidget *parent):
 
 //se il file è già stato salvato una volta invia il segnale di salvataggio, altrimenti inizia la procedura di salvataggio con nome
     void MyToolBar::onSave(){
-        qDebug()<<"inizio il salvataggio del file";
         
         if(!filePath.isEmpty()){
         save->setEnabled(false);
 
-        qDebug()<<"emetto il segnale per salvarlo";
         emit onSavePressed();
         isSaved=true;
         }
@@ -84,11 +82,7 @@ void MyToolBar::onOpen(){
                 save->setEnabled(false);
                 emit onOpenPressed();
             }
-            /*
-            else{
-                QMessageBox::warning(this,"Errore","qualcosa è andato storto nell'apertura del file");
-            }
-            */
+
 
 
     } 
@@ -120,24 +114,3 @@ void MyToolBar::onOpen(){
         return msgBox.exec();
 }
 
-/*
-
-    void MyToolBar::useMessageBox(){
-            switch(displayMessageBox()){
-                  case QMessageBox::Save:
-          // Save was clicked
-        break;
-        case QMessageBox::Discard:
-            // Don't Save was clicked
-            break;
-        case QMessageBox::Cancel:
-            // Cancel was clicked
-            break;
-        default:
-              QMessageBox::warning(this,"Errore","qualcosa è andato storto");
-            break;
-        }
-
-    }
-
-*/

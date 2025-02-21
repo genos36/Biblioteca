@@ -1,5 +1,5 @@
 #include "SearchListWidgetMedia.h"
-#include <QDebug>
+
 #include "../modelloLogicoMedia/Media.h"
 
 SearchListWidgetMedia::SearchListWidgetMedia(const Query& inputQuery,QWidget* parent):
@@ -35,7 +35,6 @@ void SearchListWidgetMedia::setQuery(const Query& q){
             if(auto item=l.item(i)){
                 if(query->hasMatch(**item)){
                     addItem(item->clone());
-                    qDebug()<<"Ho inserito l'item"<<(**item).getTitle();
                 }
             }
         }

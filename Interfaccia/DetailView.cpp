@@ -76,7 +76,7 @@
     QTextEdit* descriptionLabel=new QTextEdit();
     descriptionLabel->setText(media.getDescription());
     descriptionLabel->setReadOnly(true);  // Disabilita la modifica del testo
-    descriptionLabel->setWordWrapMode(QTextOption::WrapAnywhere);  // Abilita il ritorno a capo del testo
+    descriptionLabel->setWordWrapMode(QTextOption::WordWrap);  // Abilita il ritorno a capo del testo
     descriptionLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 
@@ -106,7 +106,6 @@
 
     connect(incrementAvailability, &QPushButton::pressed, this, [this, &media]() {
     availability->setNum(media.addToCurrentAvailability(1)); // addToCurrentAvailability incrementa la disponibilità totale(facendo i controlli) e ritorna il nuovo valore
-   // qDebug()<<media.getCurrentAvailability();
 });
 
     connect(decrementAvailability, &QPushButton::pressed, this, [this, &media]() {

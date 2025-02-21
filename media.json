@@ -60,11 +60,11 @@
     {
         "author": "gjleahrpihgf",
         "currentAv": 1,
-        "description": "fcawrbhgtdns bgnsr",
+        "description": "descrizione generica",
         "editor": "vouge",
         "frequency": 0,
         "genre": 0,
-        "imagePath": "./images/vogue.jpg",
+        "imagePath": "./images/vogueJojo.jpg",
         "nEdition": 29,
         "pages": 30,
         "title": "Vouge",
@@ -119,7 +119,7 @@
     },
     {
         "author": "Tim Burton",
-        "currentAv": 0,
+        "currentAv": 2,
         "description": "I pacifici coniugi Maitland, Adam e Barbara, rimangono vittime di un incidente d'auto; tornati da soli nella loro villa, scoprono cose bizzarre: sono capaci di fare azioni e gesti sovrannaturali, nessuno è in grado di vederli e fuori di casa li attende un deserto spaventoso abitato dai mostruosi Vermi delle Sabbie di Saturno. Grazie a un libretto chiamato Il manuale del novello deceduto capiscono di essere morti e, soprattutto, di essere diventati dei fantasmi.",
         "genre": 3,
         "hour": 0,
@@ -127,8 +127,8 @@
         "mainActor": "Michael Keaton",
         "minutes": 1,
         "second": 32,
-        "title": "beetlejuice",
-        "totalAv": 0,
+        "title": "Beetlejuice",
+        "totalAv": 4,
         "type": "film",
         "year": 1988
     },

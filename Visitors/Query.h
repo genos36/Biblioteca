@@ -22,11 +22,7 @@ class Query{
 
     virtual ~Query()=default;
 
-    QVector<Media*>search(const QVector<Media*>&)const;
-    QVector<Book*>search(const QVector<Book*>&)const;
-    QVector<Magazine*>search(const QVector<Magazine*>&)const;
-    QVector<MusicSingle*>search(const QVector<MusicSingle*>&)const;
-    QVector<Film*>search(const QVector<Film*>&)const;
+
 
     virtual bool operator==(const Query&)const;
     virtual bool operator!=(const Query&)const;
