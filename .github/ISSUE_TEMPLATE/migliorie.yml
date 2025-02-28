@@ -1,7 +1,7 @@
 name: migliorie
 description: proponi modifiche .
 title: "[features]: "
-labels: ["features", "triage"]
+labels: ["enhenchements", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - octocat
